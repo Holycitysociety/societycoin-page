@@ -1,0 +1,13 @@
+.tools{
+    display: flex; 
+    justify-content: space-around;
+}
+
+.title{
+    font-family: "Avenir Next Condensed" !important;
+    font-size: 50px;
+    color: #8d909a !important;
+    font-weight: 100;
+    letter-spacing: 0.3em;
+    margin: 20px;
+}

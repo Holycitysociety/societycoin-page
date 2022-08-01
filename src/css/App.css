@@ -1,0 +1,18 @@
+html, body, #root, .App {
+    height: 100%;
+  }
+
+  @font-face { 
+    font-family: "Avenir Next Condensed";
+    src: url("../fonts/Avenir Next Condensed.ttf.ttf");
+  }
+  
+  .App {
+    font-family: "Avenir Next Condensed";
+  }
+  
+  body{
+    font-family: "Avenir Next Condensed" !important;
+    height: 100vh;
+  }
+  

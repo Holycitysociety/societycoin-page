@@ -1,0 +1,70 @@
+.claims{
+    font-family: "Avenir Next Condensed" !important;
+    background-color: #131830;
+    height: 100%;
+}
+
+.claim{
+    padding-top: 20px;
+    margin: 0 auto !important;
+}
+
+.claim-content{
+    margin-bottom: 40px;
+}
+
+.connects-wallet{
+    display: flex;
+    justify-content: center;
+}
+
+.connects-button{
+    background-color: #2e3346 !important;
+    color: #d0d1d5 !important;
+    font-size: 20px !important;
+}
+
+.total-balance{
+    padding-top: 10px;
+}
+
+.balance-title{
+    display: flex;
+    justify-content: center;
+    color: #383d4e !important;
+    font-size: 25px;
+    margin: 0px;
+    letter-spacing: 0.3em;
+
+}
+
+.balance-number{
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+    color: #8d909a;
+}
+
+.gifts-title{
+    display: flex;
+    justify-content: center;
+    color: #383d4e;
+    font-size: 24px;
+    letter-spacing: 0.1em;
+}
+
+.gifts-number{
+    display: flex;
+    justify-content: center;
+    color: #8d909a;
+    font-size: 33px;
+    letter-spacing: 0.1em;
+}
+
+p{
+    margin: 0px;
+}
+
+.MuiTypography-body1{
+    line-height: 1.2 !important;
+}
