@@ -50,15 +50,15 @@ const About = () => {
           </div>
           <div className="total-balance">
             <p className="balance-title">TOTAL BALANCE</p>
-            <p className="balance-number"><span>2022.22 </span><img className="balance-number-img" src="./img/symbol.png" /></p>
+            <p className="balance-number"><span className="balance-number-money">2022.22 </span><img className="balance-number-img" src="./img/symbol.png" /></p>
           </div>
           <div className="gifts">
             <p className="gifts-title">LIFETIME GIFTS RECEIVED</p>
-            <p className="gifts-number"><span>522.22 </span><img className="gifts-number-img" src="./img/symbol.png" /></p>
+            <p className="gifts-number"><span className="gifts-number-money">522.22 </span><img className="gifts-number-img" src="./img/symbol.png" /></p>
           </div>
           <div className="gifts">
             <p className="gifts-title">GIFTS TO SOCIETY</p>
-            <p className="gifts-number"><span>122.22 </span><img className="gifts-number-img" src="./img/symbol.png" /></p>
+            <p className="gifts-number"><span className="gifts-number-money">122.22 </span><img className="gifts-number-img" src="./img/symbol.png" /></p>
           </div>
         </div>
         <div className="claim-gifts">

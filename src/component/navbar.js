@@ -17,8 +17,11 @@ const useStyles = makeStyles((theme) => ({
   navlinks: { marginLeft: theme.spacing(0), display: "flex" },
   logo: { flexGrow: "0", cursor: "pointer", display: "flex", justifyContent: "space-around", alignItems: "center" },
   link: {
+    border: "1px solid",
+    borderRadius: "10px",
+    padding: "3px 6px",
     textDecoration: "none",
-    color: "#f5f6f6",
+    color: "#8d909a",
     fontSize: "20px",
     marginLeft: theme.spacing(2),
     "&:hover": { color: "white" }

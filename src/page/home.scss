@@ -4,8 +4,7 @@
     background-repeat: repeat-x;
     height: 87.5vh;
     display: flex;
-    align-items: center;
-    padding: 66.5px 0px;
+    padding-top: 30px;
 }
 
 .home-title {
@@ -21,11 +20,12 @@
 .home-logos {
     display: flex;
     justify-content: center;
+    margin: 52px 0px;
 }
 
 .home-logo {
-    width: 500px;
-    height: 500px;
+    width: 420px;
+    height: 420px;
 }
 
 @media only screen and (max-width: 610px) {
@@ -34,18 +34,19 @@
     }
 
     .home-logos {
-        margin: 50px 0px;
+        margin: 60px 0px;
     }
 
     .home-logo {
-        width: 250px;
-        height: 250px;
+        width: 212px;
+        height: 212px;
     }
 
     // .home-total {
     //     padding: 69px 0px;
     // }
     .home-total {
-        height: 87.5vh
+        height: 87.5vh;
+        padding-top: 90px;
     }
 }
