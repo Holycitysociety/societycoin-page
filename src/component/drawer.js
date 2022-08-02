@@ -35,7 +35,7 @@ function DrawerComponent() {
       >
         <Toolbar sx={{ backgroundColor: "primary.main" }}>
           <Typography variant="h4" className={classes.logo}>
-            Navbar
+            SOCIETYKEY
           </Typography>
           <CloseIcon />
         </Toolbar>
@@ -53,27 +53,27 @@ function DrawerComponent() {
             <ListItem onClick={() => setOpenDrawer(false)}>
               <ListItemText>
                 <Link to="/about" className={classes.link}>
-                  About
-                </Link>
-              </ListItemText>
-            </ListItem>
-            <Divider />
-            {/* <ListItem onClick={() => setOpenDrawer(false)}>
-              <ListItemText>
-                <Link to="/contact" className={classes.link}>
-                  Contact
+                  Societykey
                 </Link>
               </ListItemText>
             </ListItem>
             <Divider />
             <ListItem onClick={() => setOpenDrawer(false)}>
               <ListItemText>
-                <Link to="/faq" className={classes.link}>
-                  FAQ
+                <Link to="/" className={classes.link}>
+                  Society Localist
                 </Link>
               </ListItemText>
             </ListItem>
-            <Divider /> */}
+            <Divider />
+            <ListItem onClick={() => setOpenDrawer(false)}>
+              <ListItemText>
+                <Link to="/" className={classes.link}>
+                  Society Rides
+                </Link>
+              </ListItemText>
+            </ListItem>
+            <Divider />
           </List>
         </box>
       </Drawer>

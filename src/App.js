@@ -6,7 +6,7 @@ import About from "./page/about";
 import Contact from "./page/contact";
 import Faq from "./page/faq";
 
-import "./css/App.css"
+import "./css/App.scss"
 
 export default function App() {
   return (

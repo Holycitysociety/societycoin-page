@@ -1,6 +1,3 @@
-html, body, #root, .App {
-    height: 100%;
-  }
 
   @font-face { 
     font-family: "Avenir Next Condensed";
@@ -15,4 +12,7 @@ html, body, #root, .App {
     font-family: "Avenir Next Condensed" !important;
     height: 100vh;
   }
-  
+  .MuiSvgIcon-root {
+
+    font-size: 2.8rem !important;
+}

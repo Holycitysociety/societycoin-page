@@ -1,0 +1,57 @@
+.coin-total{
+    font-family: "Avenir Next Condensed" !important;
+    display: flex;
+    justify-content: space-between;
+    /* border: 1px solid; */
+    border-radius: 10px;
+    padding: 10px 20px;
+    background-color: #2e3346;
+}
+
+.coin-img{
+    padding: 10px;
+}
+
+.coin-content{
+    color: #d0d1d5 !important;
+    padding-left: 30px;
+    width: 100%;
+}
+
+.coin-number{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    font-size: 20px;
+}
+
+.coin-gift{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    font-size: 19px;
+}
+
+.coin-button-group{
+    display: flex;
+    align-items: center;
+    padding: 10px 0px 0px 15px;
+}
+
+.coin-button{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.1em;
+    background-color: #7e818d;
+    color: #d0d1d5;
+    margin: 0px 5px;
+    padding: 2px 9px;
+    border: none;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}

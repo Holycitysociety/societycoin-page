@@ -11,7 +11,7 @@ import {
 import { Link } from "react-router-dom";
 import DrawerComponent from "./drawer";
 import logo from '../img/logo.png';
-import "./navbar.css"
+import "./navbar.scss"
 
 const useStyles = makeStyles((theme) => ({
   navlinks: { marginLeft: theme.spacing(0), display: "flex" },
@@ -46,14 +46,14 @@ function Navbar() {
               Home
             </Link>
             <Link to="/about" className={classes.link}>
-              About
+              Societykey
             </Link>
-            {/* <Link to="/contact" className={classes.link}>
-              Contact
+            <Link to="/" className={classes.link}>
+              Society Localist
             </Link>
-            <Link to="/faq" className={classes.link}>
-              FAQ
-            </Link> */}
+            <Link to="/" className={classes.link}>
+              Society Rides
+            </Link>
           </div>
         )}
       </Toolbar>

@@ -1,11 +1,11 @@
 .claims{
     font-family: "Avenir Next Condensed" !important;
-    background-color: #131830;
-    height: 100%;
+    background-color: #0b1127;
 }
 
 .claim{
     padding-top: 20px;
+    padding-bottom: 20px;
     margin: 0 auto !important;
 }
 
@@ -41,8 +41,9 @@
 .balance-number{
     display: flex;
     justify-content: center;
+    align-items: center;
     font-size: 50px;
-    color: #8d909a;
+    color: #d0d1d5;
 }
 
 .gifts-title{
@@ -56,13 +57,15 @@
 .gifts-number{
     display: flex;
     justify-content: center;
-    color: #8d909a;
+    align-items: center;
+    color: #d0d1d5;
     font-size: 33px;
     letter-spacing: 0.1em;
 }
 
 p{
     margin: 0px;
+    font-family: "Avenir Next Condensed" !important;
 }
 
 .MuiTypography-body1{

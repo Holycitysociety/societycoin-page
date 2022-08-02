@@ -1,6 +1,6 @@
 import { Container, Typography } from "@material-ui/core";
 
-import './home.css'
+import './home.scss'
 import skey from '../img/skey.png';
 
 const Home = () => {
