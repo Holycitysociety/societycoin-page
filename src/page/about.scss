@@ -1,8 +1,8 @@
 .claims {
     font-family: "Avenir Next Condensed" !important;
-    // background-color: #0b1127;
-    background-image: url("../img/background.png");
-    background-repeat: repeat-x;
+    background-color: #0b1127;
+    // background-image: url("../img/background.png");
+    // background-repeat: repeat-x;
 }
 
 .claim {
@@ -29,7 +29,8 @@
 
 .connects-button {
     background-color: #2e3346 !important;
-    color: #d0d1d5 !important;
+    // color: #d0d1d5 !important;
+    color: #ffffff !important;
     font-size: 20px !important;
 }
 
@@ -40,7 +41,8 @@
 .balance-title {
     display: flex;
     justify-content: center;
-    color: #383d4e !important;
+    // color: #383d4e !important;
+    color: #838487 !important;
     font-size: 25px;
     margin: 0px;
     letter-spacing: 0.3em;
@@ -52,7 +54,8 @@
     justify-content: center;
     align-items: center;
     font-size: 50px;
-    color: #d0d1d5;
+    // color: #d0d1d5;
+    color: #ffffff;
 }
 
 .balance-number-money {
@@ -62,7 +65,8 @@
 .gifts-title {
     display: flex;
     justify-content: center;
-    color: #383d4e;
+    // color: #383d4e;
+    color: #838487;
     font-size: 24px;
     letter-spacing: 0.1em;
 }
