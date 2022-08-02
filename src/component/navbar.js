@@ -31,11 +31,11 @@ function Navbar() {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" className="app-nav">
       <CssBaseline />
       <Toolbar style={{ background: '#0b1127' }} className="tools" >
         <Typography variant="h4" className={classes.logo}>
-          <img src={logo} alt="Logo" style={{ width: '117px', height: '90px' }} />
+          <img src={logo} alt="Logo" className="tools-img" />
         </Typography>
         <p className="title">SOCIETYKEY</p>
         {isMobile ? (

@@ -1,18 +1,26 @@
+@font-face {
+  font-family: "Avenir Next Condensed";
+  src: url("../fonts/Avenir Next Condensed.ttf.ttf");
+}
 
-  @font-face { 
-    font-family: "Avenir Next Condensed";
-    src: url("../fonts/Avenir Next Condensed.ttf.ttf");
-  }
-  
-  .App {
-    font-family: "Avenir Next Condensed";
-  }
-  
-  body{
-    font-family: "Avenir Next Condensed" !important;
-    height: 100vh;
-  }
+.App {
+  font-family: "Avenir Next Condensed";
+}
+
+body {
+  font-family: "Avenir Next Condensed" !important;
+}
+
+#root {
+  height: 100vh;
+}
+
+.MuiSvgIcon-root {
+  font-size: 2.8rem !important;
+}
+
+@media only screen and (max-width: 610px) {
   .MuiSvgIcon-root {
-
-    font-size: 2.8rem !important;
+    font-size: 2rem !important;
+  }
 }

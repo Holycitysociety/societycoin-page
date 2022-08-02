@@ -1,12 +1,12 @@
-.home-total{
-    background-color: #131830;
-    height: 100%;
+.home-total {
+    background-color: #0b1127;
+    height: 87.5vh;
     display: flex;
     align-items: center;
     padding: 66.5px 0px;
 }
 
-.home-title{
+.home-title {
     font-family: "Avenir Next Condensed" !important;
     display: flex;
     justify-content: center;
@@ -16,12 +16,34 @@
     margin: 0;
 }
 
-.home-logos{
+.home-logos {
     display: flex;
     justify-content: center;
 }
 
-.home-logo{
+.home-logo {
     width: 500px;
     height: 500px;
+}
+
+@media only screen and (max-width: 610px) {
+    .home-title {
+        font-size: 40px;
+    }
+
+    .home-logos {
+        margin: 50px 0px;
+    }
+
+    .home-logo {
+        width: 250px;
+        height: 250px;
+    }
+
+    // .home-total {
+    //     padding: 69px 0px;
+    // }
+    .home-total {
+        height: 87.5vh
+    }
 }

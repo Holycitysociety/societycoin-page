@@ -1,34 +1,41 @@
-.claims{
+.claims {
     font-family: "Avenir Next Condensed" !important;
     background-color: #0b1127;
 }
 
-.claim{
+.claim {
     padding-top: 20px;
     padding-bottom: 20px;
     margin: 0 auto !important;
 }
 
-.claim-content{
+.claim-gifts-title-name {
+    font-size: 20px;
+    padding: 30px 0px 10px;
+    color: #d0d1d5;
+    letter-spacing: 0.1em;
+}
+
+.claim-content {
     margin-bottom: 40px;
 }
 
-.connects-wallet{
+.connects-wallet {
     display: flex;
     justify-content: center;
 }
 
-.connects-button{
+.connects-button {
     background-color: #2e3346 !important;
     color: #d0d1d5 !important;
     font-size: 20px !important;
 }
 
-.total-balance{
+.total-balance {
     padding-top: 10px;
 }
 
-.balance-title{
+.balance-title {
     display: flex;
     justify-content: center;
     color: #383d4e !important;
@@ -38,7 +45,7 @@
 
 }
 
-.balance-number{
+.balance-number {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -46,7 +53,7 @@
     color: #d0d1d5;
 }
 
-.gifts-title{
+.gifts-title {
     display: flex;
     justify-content: center;
     color: #383d4e;
@@ -54,7 +61,7 @@
     letter-spacing: 0.1em;
 }
 
-.gifts-number{
+.gifts-number {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -63,11 +70,65 @@
     letter-spacing: 0.1em;
 }
 
-p{
+p {
     margin: 0px;
     font-family: "Avenir Next Condensed" !important;
 }
 
-.MuiTypography-body1{
+.MuiTypography-body1 {
     line-height: 1.2 !important;
+}
+
+.balance-number-img {
+    width: 22px;
+    height: 40px;
+    margin-left: 5px;
+}
+
+.gifts-number-img {
+    width: 17px;
+    height: 30px;
+    margin-left: 3px;
+}
+
+@media only screen and (max-width: 610px) {
+    .connects-button {
+        width: 50px;
+        font-size: 11px !important;
+    }
+
+    .balance-title {
+        font-size: 18px;
+        letter-spacing: 0.1em;
+    }
+
+    .balance-number {
+        font-size: 37px;
+    }
+
+    .balance-number-img {
+        width: 18px;
+        height: 32px;
+        margin-left: 4px;
+    }
+
+    .gifts-title {
+        font-size: 17px;
+        letter-spacing: 0.1em;
+    }
+
+    .gifts-number {
+        font-size: 27px;
+        letter-spacing: 0.1em;
+    }
+
+    .gifts-number-img {
+        width: 14px;
+        height: 24px;
+        margin-left: 3px;
+    }
+
+    .claim-gifts-title-name {
+        font-size: 15px;
+    }
 }

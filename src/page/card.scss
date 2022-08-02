@@ -1,4 +1,4 @@
-.coin-total{
+.coin-total {
     font-family: "Avenir Next Condensed" !important;
     display: flex;
     justify-content: space-between;
@@ -8,17 +8,17 @@
     background-color: #2e3346;
 }
 
-.coin-img{
+.coin-img {
     padding: 10px;
 }
 
-.coin-content{
+.coin-content {
     color: #d0d1d5 !important;
     padding-left: 30px;
     width: 100%;
 }
 
-.coin-number{
+.coin-number {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -26,20 +26,20 @@
     font-size: 20px;
 }
 
-.coin-gift{
+.coin-gift {
     display: flex;
     justify-content: space-between;
     padding-top: 10px;
     font-size: 19px;
 }
 
-.coin-button-group{
+.coin-button-group {
     display: flex;
     align-items: center;
     padding: 10px 0px 0px 15px;
 }
 
-.coin-button{
+.coin-button {
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -54,4 +54,84 @@
     -moz-border-radius: 3px;
     -ms-border-radius: 3px;
     -o-border-radius: 3px;
+}
+
+.coin-img-coin {
+    width: 90.5px;
+    height: 90px;
+}
+
+.coin-number-symbol {
+    width: 11px;
+    height: 19px;
+    margin-left: 3px;
+}
+
+.coin-button-group-img {
+    width: 11px;
+    height: 19px;
+}
+
+.coin-button-group-symbol {
+    width: 10px;
+    height: 17px;
+    margin: 0px 4px;
+}
+
+@media only screen and (max-width: 610px) {
+    .MuiSvgIcon-root {
+        font-size: 2rem !important;
+    }
+
+    .coin-img {
+        display: flex;
+        align-items: center;
+    }
+
+    .coin-img-coin {
+        width: 70.5px;
+        height: 70px;
+    }
+
+    .coin-content {
+        padding-left: 20px;
+    }
+
+    .coin-number {
+        padding-top: 9px;
+        font-size: 15px;
+    }
+
+    .coin-number-symbol {
+        width: 8px;
+        height: 14px;
+        margin-left: 2px;
+    }
+
+    .coin-gift {
+        padding-top: 9px;
+        font-size: 12px;
+    }
+
+    .coin-button-group {
+        padding: 10px 0px 0px 5px;
+    }
+
+    .coin-button-group-img {
+        width: 8px;
+        height: 15px;
+    }
+
+    .coin-button {
+        font-size: 10px;
+        letter-spacing: 0.1em;
+        margin: 0px 3px;
+        padding: 2px 6px;
+    }
+
+    .coin-button-group-symbol {
+        width: 8px;
+        height: 14px;
+        margin: 0px 3px;
+    }
 }

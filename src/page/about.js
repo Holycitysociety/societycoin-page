@@ -50,15 +50,15 @@ const About = () => {
           </div>
           <div className="total-balance">
             <p className="balance-title">TOTAL BALANCE</p>
-            <p className="balance-number"><span>2022.22 </span><img style={{ width: "22px", height: "40px", marginLeft: "5px" }} src="./img/symbol.png" /></p>
+            <p className="balance-number"><span>2022.22 </span><img className="balance-number-img" src="./img/symbol.png" /></p>
           </div>
           <div className="gifts">
             <p className="gifts-title">LIFETIME GIFTS RECEIVED</p>
-            <p className="gifts-number"><span>522.22 </span><img style={{ width: "17px", height: "30px", marginLeft: "3px" }} src="./img/symbol.png" /></p>
+            <p className="gifts-number"><span>522.22 </span><img className="gifts-number-img" src="./img/symbol.png" /></p>
           </div>
           <div className="gifts">
             <p className="gifts-title">GIFTS TO SOCIETY</p>
-            <p className="gifts-number"><span>122.22 </span><img style={{ width: "17px", height: "30px", marginLeft: "3px" }} src="./img/symbol.png" /></p>
+            <p className="gifts-number"><span>122.22 </span><img className="gifts-number-img" src="./img/symbol.png" /></p>
           </div>
         </div>
         <div className="claim-gifts">
@@ -74,7 +74,7 @@ const About = () => {
             <Grid container columns={12}>
               {bdata.map((item, index) => (
                 <Grid item xs={12} key={index}>
-                  <p style={{ fontSize: "20px", padding: "30px 0px 10px", color: "#d0d1d5", letterSpacing: "0.1em" }}>{item.coming}</p>
+                  <p className="claim-gifts-title-name" >{item.coming}</p>
                   <Card imgurl={item.imgurl} cointitle={item.cointitle} coinmoney={item.coinmoney} gifttitle={item.gifttitle} giftmoney={item.giftmoney} />
                 </Grid>
               ))}

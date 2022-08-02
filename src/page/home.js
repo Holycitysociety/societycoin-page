@@ -10,6 +10,7 @@ const Home = () => {
         <p className="home-title" >HOLY CITY</p>
         <p className="home-logos"><img className="home-logo" src={skey} alt="skey" /></p>
         <p className="home-title" >SOCIETYKEY</p>
+
       </Container>
     </Typography>
   );

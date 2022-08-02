@@ -1,13 +1,39 @@
-.tools{
-    display: flex; 
+.app-nav {
+    display: flex;
+    justify-content: center;
+    background-color: #0b1127 !important;
+    height: 12.5vh;
+}
+
+.tools {
+    display: flex;
     justify-content: space-around;
 }
 
-.title{
+.title {
     font-family: "Avenir Next Condensed" !important;
     font-size: 50px;
     color: #8d909a !important;
     font-weight: 100;
     letter-spacing: 0.3em;
     margin: 20px;
+}
+
+.tools-img {
+    width: 117px;
+    height: 90px;
+}
+
+@media only screen and (max-width: 610px) {
+    .tools-img {
+        width: 65px;
+        height: 50px;
+    }
+
+    .title {
+        font-size: 30px;
+        letter-spacing: 0.2em;
+        margin: 20px 5px;
+    }
+
 }
