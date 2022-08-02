@@ -1,7 +1,9 @@
 .app-nav {
     display: flex;
     justify-content: center;
-    background-color: #0b1127 !important;
+    // background-color: #0b1127 !important;
+    background-image: url("../img/background.png");
+    background-repeat: repeat-x;
     height: 12.5vh;
 }
 

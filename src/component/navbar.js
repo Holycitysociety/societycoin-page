@@ -10,7 +10,7 @@ import {
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import DrawerComponent from "./drawer";
-import logo from '../img/logo.png';
+// import logo from '../img/logo.png';
 import "./navbar.scss"
 
 const useStyles = makeStyles((theme) => ({
@@ -33,9 +33,9 @@ function Navbar() {
   return (
     <AppBar position="static" className="app-nav">
       <CssBaseline />
-      <Toolbar style={{ background: '#0b1127' }} className="tools" >
+      <Toolbar className="tools" >
         <Typography variant="h4" className={classes.logo}>
-          <img src={logo} alt="Logo" className="tools-img" />
+          <img src="./img/logo.png" alt="Logo" className="tools-img" />
         </Typography>
         <p className="title">SOCIETYKEY</p>
         {isMobile ? (
