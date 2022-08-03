@@ -22,7 +22,7 @@
       font-family: "Avenir Next Condensed";
       font-weight: 600;
 
-      & > img {
+      &>img {
         height: 36px;
         margin-left: 36px;
         margin-right: 26px;
@@ -35,7 +35,7 @@
       justify-content: center;
     }
 
-    .paper .heading > img {
+    .paper .heading>img {
       display: none;
     }
 
@@ -91,15 +91,15 @@
 
         font-weight: 500;
 
-        & > small {
+        &>small {
           margin-top: 5px;
           font-weight: 400;
           color: #ffffff;
-          font-size: 18px;
+          font-size: 16px;
         }
 
         @media screen and (max-width: 720px) {
-          display: none;
+          // display: none;
         }
       }
 
@@ -108,6 +108,7 @@
         border-radius: 10px;
       }
     }
+
     .disconnect {
       font-size: 16px;
       font-weight: 500;
