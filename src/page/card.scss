@@ -1,43 +1,43 @@
 .coin-total {
-    font-family: "Avenir Next Condensed" !important;
-    display: flex;
-    justify-content: space-between;
-    /* border: 1px solid; */
-    border-radius: 10px;
-    padding: 10px 20px;
-    background-color: #2e3346;
+  font-family: "Avenir Next Condensed" !important;
+  display: flex;
+  justify-content: space-between;
+  /* border: 1px solid; */
+  border-radius: 10px;
+  padding: 10px 20px;
+  background-color: #2e3346;
 }
 
 .coin-img {
-    padding: 10px;
+  padding: 10px;
 }
 
 .coin-content {
-    // color: #d0d1d5 !important;
-    color: #ffffff !important;
-    padding-left: 30px;
-    width: 100%;
+  // color: #d0d1d5 !important;
+  color: #ffffff !important;
+  padding-left: 30px;
+  width: 100%;
 }
 
 .coin-number {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 10px;
-    font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  font-size: 20px;
 }
 
 .coin-gift {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 10px;
-    font-size: 19px;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+  font-size: 19px;
 }
 
 .coin-button-group {
-    display: flex;
-    align-items: center;
-    padding: 10px 0px 0px 15px;
+  display: flex;
+  align-items: center;
+  padding: 10px 0px 0px 15px;
 }
 
 // .coin-button {
@@ -57,139 +57,139 @@
 // }
 
 .coin-img-coin {
-    width: 90.5px;
-    height: 90px;
+  width: 90.5px;
+  height: 90px;
 }
 
 .coin-number-symbol {
-    width: 9px;
-    height: 15px;
-    margin-left: 1px;
+  width: 9px;
+  height: 15px;
+  margin-left: 1px;
 }
 
 .coin-button-receive {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.1em;
-    background-color: #7e818d;
-    color: #ffffff;
-    // color: #d0d1d5;
-    margin: 0px 5px;
-    padding: 2px 9px;
-    border: none;
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -ms-border-radius: 3px;
-    -o-border-radius: 3px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.1em;
+  background-color: #7e818d;
+  color: #ffffff;
+  // color: #d0d1d5;
+  margin: 0px 5px;
+  padding: 2px 9px;
+  border: none;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
 
-    // margin: 0px;
-    // padding: 0;
-    // border: none;
-    // outline: none;
-    // background-color: transparent;
+  // margin: 0px;
+  // padding: 0;
+  // border: none;
+  // outline: none;
+  // background-color: transparent;
 }
 
 .coin-button-gift {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.1em;
-    background-color: #7e818d;
-    color: #ffffff;
-    // color: #d0d1d5;
-    margin: 0px 5px;
-    padding: 2px 9px;
-    border: none;
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -ms-border-radius: 3px;
-    -o-border-radius: 3px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.1em;
+  background-color: #7e818d;
+  color: #ffffff;
+  // color: #d0d1d5;
+  margin: 0px 5px;
+  padding: 2px 9px;
+  border: none;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
 
-    // color: #ffffff;
-    // margin: 0px;
-    // padding: 0;
-    // cursor: pointer;
-    // border: none;
-    // outline: none;
-    // background-color: transparent;
+  // color: #ffffff;
+  // margin: 0px;
+  // padding: 0;
+  // cursor: pointer;
+  // border: none;
+  // outline: none;
+  // background-color: transparent;
 }
 
 .coin-button-group-img {
-    width: 14px;
-    height: 20px;
+  width: 14px;
+  height: 20px;
 }
 
 .coin-button-group-symbol {
-    width: 10px;
-    height: 17px;
-    margin: 0px 4px;
+  width: 10px;
+  height: 17px;
+  margin: 0px 4px;
 }
 
 @media only screen and (max-width: 610px) {
-    .MuiSvgIcon-root {
-        font-size: 2rem !important;
-    }
+  .MuiSvgIcon-root {
+    font-size: 2rem !important;
+  }
 
-    .coin-img {
-        display: flex;
-        align-items: center;
-    }
+  .coin-img {
+    display: flex;
+    align-items: center;
+  }
 
-    .coin-img-coin {
-        width: 70.5px;
-        height: 70px;
-    }
+  .coin-img-coin {
+    width: 70.5px;
+    height: 70px;
+  }
 
-    .coin-content {
-        padding-left: 20px;
-    }
+  .coin-content {
+    padding-left: 20px;
+  }
 
-    .coin-number {
-        padding-top: 9px;
-        font-size: 15px;
-    }
+  .coin-number {
+    padding-top: 9px;
+    font-size: 15px;
+  }
 
-    .coin-number-symbol {
-        width: 6px;
-        height: 11px;
-        margin-left: 2px;
-    }
+  .coin-number-symbol {
+    width: 6px;
+    height: 11px;
+    margin-left: 2px;
+  }
 
-    .coin-gift {
-        padding-top: 9px;
-        font-size: 12px;
-    }
+  .coin-gift {
+    padding-top: 9px;
+    font-size: 12px;
+  }
 
-    .coin-button-group {
-        padding: 10px 0px 0px 5px;
-    }
+  .coin-button-group {
+    padding: 10px 0px 0px 5px;
+  }
 
-    .coin-button-group-img {
-        width: 12px;
-        height: 16px;
-    }
+  .coin-button-group-img {
+    width: 12px;
+    height: 16px;
+  }
 
-    .coin-button {
-        font-size: 10px;
-        letter-spacing: 0.1em;
-        margin: 0px 3px;
-        padding: 2px 6px;
-    }
+  .coin-button {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    margin: 0px 3px;
+    padding: 2px 6px;
+  }
 
-    .coin-button-receive {
-        font-size: 11px;
-    }
+  .coin-button-receive {
+    font-size: 11px;
+  }
 
-    .coin-button-gift {
-        font-size: 11px;
-    }
+  .coin-button-gift {
+    font-size: 11px;
+  }
 
-    .coin-button-group-symbol {
-        width: 7px;
-        height: 10px;
-        margin: 0px 2px;
-    }
+  .coin-button-group-symbol {
+    width: 7px;
+    height: 10px;
+    margin: 0px 2px;
+  }
 }

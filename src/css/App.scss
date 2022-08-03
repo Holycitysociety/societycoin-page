@@ -3,6 +3,25 @@
   src: url("../fonts/Avenir Next Condensed.ttf.ttf");
 }
 
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #0b1127;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #0b1127;
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #000429;
+}
+
 .App {
   font-family: "Avenir Next Condensed";
 }
@@ -23,14 +42,10 @@ body {
   .MuiSvgIcon-root {
     // color: #8d909a;
     font-size: 2rem !important;
-
   }
 
   .MuiIconButton-root {
     padding: 0px 12px 6px 12px !important;
     color: #8d909a !important;
   }
-
-
-
 }
