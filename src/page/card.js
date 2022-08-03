@@ -45,11 +45,8 @@ const Card = (props) => {
                 </p>
                 <div className="coin-button-group">
                     <img className='coin-button-group-img' src="./img/left.png" />
-                    {/* <button className="coin-button"> */}
                     <button className='coin-button-receive'>RECEIVE  <img className='coin-button-group-symbol' src="./img/symbol.png" /></button>
-
                     <button onClick={handleOpen} className='coin-button-gift'>GIFT <img className='coin-button-group-symbol' src="./img/symbol.png" /></button>
-                    {/* </button> */}
                     <img className='coin-button-group-img' src="./img/right.png" />
                 </div>
             </div>
@@ -70,7 +67,7 @@ const Card = (props) => {
                     {/* <Typography id="transition-modal-title" variant="h6" component="h2">
                         Claim
                     </Typography> */}
-                    <p style={{ fontSize: "20px", color: "#d0d1d5", letterSpacing: "0.2em", fontWeight: "bold" }}>RECEIVE<img style={{ width: "11px", height: "20px", margin: "0px 6px" }} src="./img/symbol.png" />GIFT</p>
+                    <p style={{ fontSize: "20px", color: "#d0d1d5", letterSpacing: "0.2em", fontWeight: "bold", display: "flex", alignContent: "center" }}>GIFT<img style={{ width: "11px", height: "17px", margin: "4px 6px 0px 6px" }} src="./img/symbol.png" /></p>
                     <Box
                         sx={{
                             width: 500,
