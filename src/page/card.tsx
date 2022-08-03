@@ -62,14 +62,14 @@ const Card = (
               <img
                 className="coin-button-group-symbol"
                 src="./img/symbol.png"
-              />
+              />GIFTs
             </button>
             <button onClick={handleOpen} className="coin-button-gift">
-              GIFT{" "}
+              Give
               <img
                 className="coin-button-group-symbol"
                 src="./img/symbol.png"
-              />
+              />GIFTs
             </button>
             <img className="coin-button-group-img" src="./img/right.png" />
           </div>
@@ -97,14 +97,16 @@ const Card = (
                 color: "#d0d1d5",
                 letterSpacing: "0.2em",
                 fontWeight: "bold",
+                display: "flex",
+                alignItems: "center"
               }}
             >
-              RECEIVE
+              GIVE
               <img
                 style={{ width: "11px", height: "20px", margin: "0px 6px" }}
                 src="./img/symbol.png"
               />
-              GIFT
+              GIFTS
             </p>
             <Box
               sx={{

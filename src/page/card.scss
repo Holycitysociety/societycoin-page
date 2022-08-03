@@ -68,9 +68,11 @@
 }
 
 .coin-button-receive {
+  width: 145px;
   cursor: pointer;
   display: flex;
   align-items: center;
+  justify-content: center;
   letter-spacing: 0.1em;
   background-color: #7e818d;
   color: #ffffff;
@@ -92,10 +94,12 @@
 }
 
 .coin-button-gift {
+  width: 145px;
   cursor: pointer;
   display: flex;
   align-items: center;
-  letter-spacing: 0.1em;
+  justify-content: center;
+  letter-spacing: 0.2em;
   background-color: #7e818d;
   color: #ffffff;
   // color: #d0d1d5;
@@ -133,9 +137,14 @@
     font-size: 2rem !important;
   }
 
+  .coin-total {
+    padding: 10px 10px;
+  }
+
   .coin-img {
     display: flex;
     align-items: center;
+    padding: 0px;
   }
 
   .coin-img-coin {
@@ -180,11 +189,18 @@
   }
 
   .coin-button-receive {
-    font-size: 11px;
+    font-size: 9px;
+    width: 95.08px;
+    padding: 3px 9px;
+    margin: 0px 2px;
   }
 
   .coin-button-gift {
-    font-size: 11px;
+    font-size: 9px;
+    width: 95.08px;
+    padding: 3px 9px;
+    margin: 0px 2px;
+    letter-spacing: 0.2em;
   }
 
   .coin-button-group-symbol {
