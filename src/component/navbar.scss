@@ -1,42 +1,40 @@
 .app-nav {
-    display: flex;
-    justify-content: center;
-    background-color: #0b1127 !important;
-    // background-image: url("../img/background.png");
-    // background-repeat: repeat-x;
-    height: 12.5vh;
+  display: flex;
+  justify-content: center;
+  background-color: #0b1127 !important;
+  // background-image: url("../img/background.png");
+  // background-repeat: repeat-x;
+  height: 12.5vh;
 }
 
 .tools {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
 .title {
-    font-family: "Avenir Next Condensed" !important;
-    font-size: 50px;
-    color: #8d909a !important;
-    font-weight: 100;
-    letter-spacing: 0.3em;
-    margin: 20px;
+  font-family: "Avenir Next Condensed" !important;
+  font-size: 50px;
+  color: #8d909a !important;
+  font-weight: 100;
+  letter-spacing: 0.3em;
+  margin: 20px;
 }
 
 .tools-img {
-    width: 117px;
-    height: 90px;
+  width: 117px;
+  height: 90px;
 }
 
-
 @media only screen and (max-width: 610px) {
-    .tools-img {
-        width: 59px;
-        height: 45px;
-    }
+  .tools-img {
+    width: 59px;
+    height: 45px;
+  }
 
-    .title {
-        font-size: 25px;
-        letter-spacing: 0.2em;
-        margin: 20px 5px;
-    }
-
+  .title {
+    font-size: 25px;
+    letter-spacing: 0.2em;
+    margin: 20px 5px;
+  }
 }
