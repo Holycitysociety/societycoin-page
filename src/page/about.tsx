@@ -1,10 +1,17 @@
+import { useState } from "react";
 import { Container, Box } from "@material-ui/core";
 import { Button, Grid } from "@mui/material";
+import { useEthers, shortenAddress } from "@usedapp/core";
+
 import Card from "./card";
+import WalletConnectionModal from "../component/walletmodal";
 
 import "./about.scss";
 
 const About = () => {
+  const [wallet, setWallet] = useState(false);
+  const { account } = useEthers();
+
   const adata = [
     {
       imgurl: "./img/scoin.png",
@@ -41,6 +48,7 @@ const About = () => {
   ];
   return (
     <Box className="claims">
+      <WalletConnectionModal open={wallet} onClose={() => setWallet(false)} />
       <Container className="claim">
         <div className="claim-content">
           <div className="connects-wallet">
@@ -48,10 +56,10 @@ const About = () => {
               variant="contained"
               className="connects-button"
               onClick={() => {
-                alert("clicked");
+                setWallet(true);
               }}
             >
-              CONNECT WALLET
+              {account ? shortenAddress(account) : "CONNECT WALLET"}
             </Button>
           </div>
           <div className="total-balance">
