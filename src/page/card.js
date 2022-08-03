@@ -80,7 +80,7 @@ const Card = (props) => {
                     </Typography> */}
                     <Box>
                         <Button sx={{ mr: 3 }} variant="contained">Confirm</Button>
-                        <Button variant="contained" color="error">Cancel</Button>
+                        <Button variant="contained" color="error" onClick={handleClose}>Cancel</Button>
                     </Box>
                 </Box>
             </Fade>
