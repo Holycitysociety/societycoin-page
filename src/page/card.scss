@@ -41,13 +41,11 @@
 }
 
 .coin-button {
-    cursor: pointer;
     display: flex;
     align-items: center;
     letter-spacing: 0.1em;
     background-color: #7e818d;
     // color: #d0d1d5;
-    color: #ffffff;
     margin: 0px 5px;
     padding: 2px 9px;
     border: none;
@@ -67,6 +65,56 @@
     width: 9px;
     height: 15px;
     margin-left: 1px;
+}
+
+.coin-button-receive {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.1em;
+    background-color: #7e818d;
+    color: #ffffff;
+    // color: #d0d1d5;
+    margin: 0px 5px;
+    padding: 2px 9px;
+    border: none;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+
+    // margin: 0px;
+    // padding: 0;
+    // border: none;
+    // outline: none;
+    // background-color: transparent;
+}
+
+.coin-button-gift {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.1em;
+    background-color: #7e818d;
+    color: #ffffff;
+    // color: #d0d1d5;
+    margin: 0px 5px;
+    padding: 2px 9px;
+    border: none;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+
+    // color: #ffffff;
+    // margin: 0px;
+    // padding: 0;
+    // cursor: pointer;
+    // border: none;
+    // outline: none;
+    // background-color: transparent;
 }
 
 .coin-button-group-img {

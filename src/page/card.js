@@ -45,7 +45,11 @@ const Card = (props) => {
                 </p>
                 <div className="coin-button-group">
                     <img className='coin-button-group-img' src="./img/left.png" />
-                    <button className="coin-button" onClick={handleOpen}>RECEIVE<img className='coin-button-group-symbol' src="./img/symbol.png" />GIFT</button>
+                    {/* <button className="coin-button"> */}
+                    <button className='coin-button-receive'>RECEIVE  <img className='coin-button-group-symbol' src="./img/symbol.png" /></button>
+
+                    <button onClick={handleOpen} className='coin-button-gift'>GIFT <img className='coin-button-group-symbol' src="./img/symbol.png" /></button>
+                    {/* </button> */}
                     <img className='coin-button-group-img' src="./img/right.png" />
                 </div>
             </div>
