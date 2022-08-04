@@ -9,6 +9,7 @@ import {
   Theme,
   createStyles,
 } from '@material-ui/core'
+import { styled } from '@mui/material'
 import { Link } from 'react-router-dom'
 import DrawerComponent from './drawer'
 // import logo from '../img/logo.png';
@@ -42,6 +43,21 @@ function Navbar() {
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down('md'))
 
+  const Keyframes = styled('div')({
+    '@keyframes pulsate': {
+      from: {
+        opacity: 1,
+        transform: 'scale(0.5)',
+      },
+      to: {
+        opacity: 0,
+        transform: 'scale(1.7)',
+      },
+    },
+    animation: 'pulsate 1.5s infinite ease',
+    position: 'relative',
+  })
+
   return (
     <AppBar position='static' className='app-nav'>
       <CssBaseline />
@@ -49,7 +65,7 @@ function Navbar() {
         <Typography variant='h4' className={classes.logo}>
           <img src='./img/logo.png' alt='Logo' className='tools-img' />
         </Typography>
-        <p className='title'>SOCIETYKEY</p>
+        <Keyframes className='title'>SOCIETYKEY</Keyframes>
         {isMobile ? (
           <DrawerComponent />
         ) : (
