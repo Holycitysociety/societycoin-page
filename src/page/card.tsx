@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { BigNumber } from '@ethersproject/bignumber';
 
 import Backdrop from '@mui/material/Backdrop';
 import Modal from '@mui/material/Modal';
@@ -9,12 +10,13 @@ import Button from '@mui/material/Button';
 
 import './card.scss';
 
-const Card = (
-  props: Record<
-    'cointitle' | 'coinmoney' | 'gifttitle' | 'giftmoney' | 'imgurl',
-    string
-  >
-) => {
+const Card = (props: {
+  cointitle: string;
+  gifttitle: string;
+  imgurl: string;
+  coinmoney: BigNumber;
+  giftmoney: BigNumber;
+}) => {
   const style = {
     position: 'absolute',
     top: '50%',
@@ -28,7 +30,7 @@ const Card = (
     p: 4,
   };
 
-  const { cointitle, coinmoney, gifttitle, giftmoney, imgurl } = props;
+  const { cointitle, gifttitle, imgurl, coinmoney, giftmoney } = props;
 
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -44,14 +46,14 @@ const Card = (
           <div className='coin-number'>
             <span>{cointitle}</span>
             <p style={{ display: 'flex', alignItems: 'center' }}>
-              <span>{coinmoney}</span>{' '}
+              <span>{Number(coinmoney) / 1e18 || 0}</span>{' '}
               <img className='coin-number-symbol' src='./img/symbol.png' />{' '}
             </p>
           </div>
           <div className='coin-gift'>
             <span>{gifttitle}</span>
             <p style={{ display: 'flex', alignItems: 'center' }}>
-              <span>{giftmoney}</span>{' '}
+              <span>{Number(giftmoney) / 1e18 || 0}</span>{' '}
               <img className='coin-number-symbol' src='./img/symbol.png' />{' '}
             </p>
           </div>
