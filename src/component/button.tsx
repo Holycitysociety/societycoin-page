@@ -1,18 +1,18 @@
-import clsx from "clsx";
-import * as React from "react";
-import BaseButton from "@material-ui/core/Button";
-import BeatLoader from "react-spinners/BeatLoader";
+import clsx from 'clsx'
+import * as React from 'react'
+import BaseButton from '@material-ui/core/Button'
+import BeatLoader from 'react-spinners/BeatLoader'
 
-import "./button.scss";
+import './button.scss'
 
 interface ButtonProps {
-  children: React.ReactNode;
-  disabled?: boolean;
-  customClass: any;
-  secondary?: boolean;
-  loading?: boolean;
-  onClick: () => void;
-  fullWidth?: boolean;
+  children: React.ReactNode
+  disabled?: boolean
+  customClass: any
+  secondary?: boolean
+  loading?: boolean
+  onClick: () => void
+  fullWidth?: boolean
 }
 
 const Button = ({
@@ -25,17 +25,17 @@ const Button = ({
   fullWidth,
 }: ButtonProps) => {
   const classes = clsx(
-    "button",
+    'button',
     { disabled: disabled },
     { secondary: secondary },
-    customClass
-  );
+    customClass,
+  )
 
   return (
     <BaseButton className={classes} onClick={onClick} fullWidth={fullWidth}>
-      {loading ? <BeatLoader color="#fff" loading={true} size={8} /> : children}
+      {loading ? <BeatLoader color='#fff' loading={true} size={8} /> : children}
     </BaseButton>
-  );
-};
+  )
+}
 
-export default Button;
+export default Button

@@ -8,69 +8,69 @@ import {
   useMediaQuery,
   Theme,
   createStyles,
-} from "@material-ui/core";
-import { Link } from "react-router-dom";
-import DrawerComponent from "./drawer";
+} from '@material-ui/core'
+import { Link } from 'react-router-dom'
+import DrawerComponent from './drawer'
 // import logo from '../img/logo.png';
-import "./navbar.scss";
+import './navbar.scss'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    navlinks: { marginLeft: theme.spacing(0), display: "flex" },
+    navlinks: { marginLeft: theme.spacing(0), display: 'flex' },
     logo: {
       flexGrow: 0,
-      cursor: "pointer",
-      display: "flex",
-      justifyContent: "space-around",
-      alignItems: "center",
+      cursor: 'pointer',
+      display: 'flex',
+      justifyContent: 'space-around',
+      alignItems: 'center',
     },
     link: {
-      border: "1px solid",
-      borderRadius: "10px",
-      padding: "3px 6px",
-      textDecoration: "none",
-      color: "#8d909a",
-      fontSize: "20px",
+      border: '1px solid',
+      borderRadius: '10px',
+      padding: '3px 6px',
+      textDecoration: 'none',
+      color: '#8d909a',
+      fontSize: '20px',
       marginLeft: theme.spacing(2),
-      "&:hover": { color: "white" },
+      '&:hover': { color: 'white' },
     },
-  })
-);
+  }),
+)
 
 function Navbar() {
-  const classes = useStyles();
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const classes = useStyles()
+  const theme = useTheme()
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'))
 
   return (
-    <AppBar position="static" className="app-nav">
+    <AppBar position='static' className='app-nav'>
       <CssBaseline />
-      <Toolbar className="tools">
-        <Typography variant="h4" className={classes.logo}>
-          <img src="./img/logo.png" alt="Logo" className="tools-img" />
+      <Toolbar className='tools'>
+        <Typography variant='h4' className={classes.logo}>
+          <img src='./img/logo.png' alt='Logo' className='tools-img' />
         </Typography>
-        <p className="title">SOCIETYKEY</p>
+        <p className='title'>SOCIETYKEY</p>
         {isMobile ? (
           <DrawerComponent />
         ) : (
           <div className={classes.navlinks}>
-            <Link to="/" className={classes.link}>
+            <Link to='/' className={classes.link}>
               Home
             </Link>
-            <Link to="/about" className={classes.link}>
+            <Link to='/about' className={classes.link}>
               Societykey
             </Link>
-            <Link to="/" className={classes.link}>
+            <Link to='/' className={classes.link}>
               Society Localist
             </Link>
-            <Link to="/" className={classes.link}>
+            <Link to='/' className={classes.link}>
               Society Rides
             </Link>
           </div>
         )}
       </Toolbar>
     </AppBar>
-  );
+  )
 }
 
-export default Navbar;
+export default Navbar
