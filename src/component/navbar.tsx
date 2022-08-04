@@ -8,12 +8,12 @@ import {
   useMediaQuery,
   Theme,
   createStyles,
-} from '@material-ui/core'
-import { styled } from '@mui/material'
-import { Link } from 'react-router-dom'
-import DrawerComponent from './drawer'
+} from '@material-ui/core';
+import { styled } from '@mui/material';
+import { Link } from 'react-router-dom';
+import DrawerComponent from './drawer';
 // import logo from '../img/logo.png';
-import './navbar.scss'
+import './navbar.scss';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -35,13 +35,13 @@ const useStyles = makeStyles((theme: Theme) =>
       marginLeft: theme.spacing(2),
       '&:hover': { color: 'white' },
     },
-  }),
-)
+  })
+);
 
 function Navbar() {
-  const classes = useStyles()
-  const theme = useTheme()
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'))
+  const classes = useStyles();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   const Keyframes = styled('div')({
     '@keyframes pulsate': {
@@ -56,7 +56,7 @@ function Navbar() {
     },
     animation: 'pulsate 1.5s infinite ease',
     position: 'relative',
-  })
+  });
 
   return (
     <AppBar position='static' className='app-nav'>
@@ -86,7 +86,7 @@ function Navbar() {
         )}
       </Toolbar>
     </AppBar>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;

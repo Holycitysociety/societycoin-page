@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState } from 'react';
 import {
   Drawer,
   List,
@@ -11,10 +11,10 @@ import {
   makeStyles,
   createStyles,
   Box,
-} from '@material-ui/core'
-import { Link } from 'react-router-dom'
-import MenuIcon from '@material-ui/icons/Menu'
-import CloseIcon from '@material-ui/icons/Close'
+} from '@material-ui/core';
+import { Link } from 'react-router-dom';
+import MenuIcon from '@material-ui/icons/Menu';
+import CloseIcon from '@material-ui/icons/Close';
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -22,12 +22,12 @@ const useStyles = makeStyles(() =>
     icon: { color: '#d0d1d5' },
     logo: { flexGrow: 1, cursor: 'pointer', color: '#d0d1d5' },
     draw: { background: 'red' },
-  }),
-)
+  })
+);
 
 function DrawerComponent() {
-  const classes = useStyles()
-  const [openDrawer, setOpenDrawer] = useState(false)
+  const classes = useStyles();
+  const [openDrawer, setOpenDrawer] = useState(false);
 
   return (
     <>
@@ -91,7 +91,7 @@ function DrawerComponent() {
         <MenuIcon />
       </IconButton>
     </>
-  )
+  );
 }
 
-export default DrawerComponent
+export default DrawerComponent;

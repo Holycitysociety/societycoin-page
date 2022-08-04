@@ -1,20 +1,22 @@
-import * as React from 'react'
+import { memo, useState } from 'react';
+import Backdrop from '@mui/material/Backdrop';
+import Modal from '@mui/material/Modal';
+import Fade from '@mui/material/Fade';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import { BigNumber } from '@ethersproject/bignumber';
 
-import Backdrop from '@mui/material/Backdrop'
-import Modal from '@mui/material/Modal'
-import Fade from '@mui/material/Fade'
-import Box from '@mui/material/Box'
-import TextField from '@mui/material/TextField'
-import Button from '@mui/material/Button'
+import './card.scss';
 
-import './card.scss'
-
-const Card = (
-  props: Record<
-    'cointitle' | 'coinmoney' | 'gifttitle' | 'giftmoney' | 'imgurl',
-    string
-  >,
-) => {
+const Card = (props: {
+  cointitle: string;
+  gifttitle: string;
+  imgurl: string;
+  coinmoney: BigNumber;
+  giftmoney: BigNumber;
+  claim?: (address?: string | undefined) => void;
+}) => {
   const style = {
     position: 'absolute',
     top: '50%',
@@ -26,13 +28,14 @@ const Card = (
     borderRadius: '10px',
     boxShadow: 24,
     p: 4,
-  }
+  };
 
-  const { cointitle, coinmoney, gifttitle, giftmoney, imgurl } = props
+  const { cointitle, gifttitle, imgurl, coinmoney, giftmoney, claim } = props;
 
-  const [open, setOpen] = React.useState(false)
-  const handleOpen = () => setOpen(true)
-  const handleClose = () => setOpen(false)
+  const [open, setOpen] = useState(false);
+  const [claimAddress, setClaimAddress] = useState('');
+  const handleOpen = () => claim && setOpen(true);
+  const handleClose = () => setOpen(false);
 
   return (
     <div>
@@ -44,20 +47,25 @@ const Card = (
           <div className='coin-number'>
             <span>{cointitle}</span>
             <p style={{ display: 'flex', alignItems: 'center' }}>
-              <span>{coinmoney}</span>{' '}
+              <span>{Number(coinmoney) / 1e18 || 0}</span>{' '}
               <img className='coin-number-symbol' src='./img/symbol.png' />{' '}
             </p>
           </div>
           <div className='coin-gift'>
             <span>{gifttitle}</span>
             <p style={{ display: 'flex', alignItems: 'center' }}>
-              <span>{giftmoney}</span>{' '}
+              <span>{Number(giftmoney) / 1e18 || 0}</span>{' '}
               <img className='coin-number-symbol' src='./img/symbol.png' />{' '}
             </p>
           </div>
           <div className='coin-button-group'>
             <img className='coin-button-group-img' src='./img/left.png' />
-            <button className='coin-button-receive'>
+            <button
+              className='coin-button-receive'
+              onClick={() => {
+                if (claim) claim();
+              }}
+            >
               RECEIVE{' '}
               <img
                 className='coin-button-group-symbol'
@@ -123,13 +131,23 @@ const Card = (
                 id='claim'
                 sx={{ mb: 5, mt: 2 }}
                 style={{ backgroundColor: '#eee', borderRadius: '5px' }}
+                value={claimAddress}
+                onChange={(e) => setClaimAddress(e.target.value)}
               />
             </Box>
             {/* <Typography id="transition-modal-description" sx={{ mt: 3 }}>
                         Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
                     </Typography> */}
             <Box>
-              <Button sx={{ mr: 3 }} variant='contained'>
+              <Button
+                sx={{ mr: 3 }}
+                variant='contained'
+                onClick={() => {
+                  console.log(claimAddress);
+                  console.log(claim);
+                  if (claim) claim(claimAddress);
+                }}
+              >
                 Confirm
               </Button>
               <Button variant='contained' color='error' onClick={handleClose}>
@@ -140,6 +158,6 @@ const Card = (
         </Fade>
       </Modal>
     </div>
-  )
-}
-export default Card
+  );
+};
+export default memo(Card);

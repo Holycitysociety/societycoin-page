@@ -1,6 +1,6 @@
-import { Container, Box } from '@material-ui/core'
+import { Container, Box } from '@material-ui/core';
 
-import './home.scss'
+import './home.scss';
 // import skey from '../img/skey.png';
 
 const Home = () => {
@@ -18,6 +18,6 @@ const Home = () => {
       {/* <div className="home-total-one"></div> */}
       <img className='home-logos' src='./img/spage.PNG' alt='spage' />
     </div>
-  )
-}
-export default Home
+  );
+};
+export default Home;
