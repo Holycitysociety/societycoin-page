@@ -1,19 +1,19 @@
-import * as React from 'react'
+import * as React from 'react';
 
-import Backdrop from '@mui/material/Backdrop'
-import Modal from '@mui/material/Modal'
-import Fade from '@mui/material/Fade'
-import Box from '@mui/material/Box'
-import TextField from '@mui/material/TextField'
-import Button from '@mui/material/Button'
+import Backdrop from '@mui/material/Backdrop';
+import Modal from '@mui/material/Modal';
+import Fade from '@mui/material/Fade';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
-import './card.scss'
+import './card.scss';
 
 const Card = (
   props: Record<
     'cointitle' | 'coinmoney' | 'gifttitle' | 'giftmoney' | 'imgurl',
     string
-  >,
+  >
 ) => {
   const style = {
     position: 'absolute',
@@ -26,13 +26,13 @@ const Card = (
     borderRadius: '10px',
     boxShadow: 24,
     p: 4,
-  }
+  };
 
-  const { cointitle, coinmoney, gifttitle, giftmoney, imgurl } = props
+  const { cointitle, coinmoney, gifttitle, giftmoney, imgurl } = props;
 
-  const [open, setOpen] = React.useState(false)
-  const handleOpen = () => setOpen(true)
-  const handleClose = () => setOpen(false)
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   return (
     <div>
@@ -140,6 +140,6 @@ const Card = (
         </Fade>
       </Modal>
     </div>
-  )
-}
-export default Card
+  );
+};
+export default Card;

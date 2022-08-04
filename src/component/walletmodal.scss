@@ -19,10 +19,10 @@
       align-items: center;
       color: white;
       text-transform: uppercase;
-      font-family: "Avenir Next Condensed";
+      font-family: 'Avenir Next Condensed';
       font-weight: 600;
 
-      &>img {
+      & > img {
         height: 36px;
         margin-left: 36px;
         margin-right: 26px;
@@ -35,7 +35,7 @@
       justify-content: center;
     }
 
-    .paper .heading>img {
+    .paper .heading > img {
       display: none;
     }
 
@@ -61,7 +61,7 @@
       margin-bottom: 10px;
       height: 72px;
       text-transform: none;
-      font-family: "Avenir Next Condensed";
+      font-family: 'Avenir Next Condensed';
 
       font-size: 22px;
       border: 2px solid #211d8f;
@@ -87,11 +87,11 @@
         align-items: flex-start;
         letter-spacing: 0;
         line-height: 24px;
-        font-family: "Avenir Next Condensed";
+        font-family: 'Avenir Next Condensed';
 
         font-weight: 500;
 
-        &>small {
+        & > small {
           margin-top: 5px;
           font-weight: 400;
           color: #ffffff;
@@ -113,7 +113,7 @@
       font-size: 16px;
       font-weight: 500;
       margin-top: 10px;
-      font-family: "Avenir Next Condensed";
+      font-family: 'Avenir Next Condensed';
       border: 1px solid #211d8f;
       border-radius: 0;
       padding: 12px 20px !important;

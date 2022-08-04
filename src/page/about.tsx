@@ -1,16 +1,16 @@
-import { useState } from 'react'
-import { Container, Box } from '@material-ui/core'
-import { Button, Grid } from '@mui/material'
-import { useEthers, shortenAddress } from '@usedapp/core'
+import { useState } from 'react';
+import { Container, Box } from '@material-ui/core';
+import { Button, Grid } from '@mui/material';
+import { useEthers, shortenAddress } from '@usedapp/core';
 
-import Card from './card'
-import WalletConnectionModal from '../component/walletmodal'
+import Card from './card';
+import WalletConnectionModal from '../component/walletmodal';
 
-import './about.scss'
+import './about.scss';
 
 const About = () => {
-  const [wallet, setWallet] = useState(false)
-  const { account } = useEthers()
+  const [wallet, setWallet] = useState(false);
+  const { account } = useEthers();
 
   const adata = [
     {
@@ -27,7 +27,7 @@ const About = () => {
       gifttitle: 'SOCIETY GOOD WORKS GIFTED',
       giftmoney: '44.44',
     },
-  ]
+  ];
   const bdata = [
     {
       coming: 'SOCIETY SUPPLYCHAIN ( COMING SOON)',
@@ -45,7 +45,7 @@ const About = () => {
       gifttitle: 'SOCIETY GOOD WORKS GIFTED',
       giftmoney: '44.44',
     },
-  ]
+  ];
   return (
     <Box className='claims'>
       <WalletConnectionModal open={wallet} onClose={() => setWallet(false)} />
@@ -56,7 +56,7 @@ const About = () => {
               variant='contained'
               className='connects-button'
               onClick={() => {
-                setWallet(true)
+                setWallet(true);
               }}
             >
               {account ? shortenAddress(account) : 'CONNECT WALLET'}
@@ -118,6 +118,6 @@ const About = () => {
         </div>
       </Container>
     </Box>
-  )
-}
-export default About
+  );
+};
+export default About;
