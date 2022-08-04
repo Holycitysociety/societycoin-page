@@ -37,7 +37,7 @@
 .coin-button-group {
   display: flex;
   align-items: center;
-  padding: 10px 0px 0px 15px;
+  padding: 10px 0px 0px 0px;
 }
 
 // .coin-button {
@@ -91,6 +91,10 @@
   // border: none;
   // outline: none;
   // background-color: transparent;
+}
+
+.coin-button-or {
+  font-size: 18px;
 }
 
 .coin-button-gift {
@@ -173,7 +177,7 @@
   }
 
   .coin-button-group {
-    padding: 10px 0px 0px 5px;
+    padding: 10px 0px 0px 0px;
   }
 
   .coin-button-group-img {
@@ -193,6 +197,10 @@
     width: 95.08px;
     padding: 3px 9px;
     margin: 0px 2px;
+  }
+
+  .coin-button-or {
+    font-size: 11px;
   }
 
   .coin-button-gift {

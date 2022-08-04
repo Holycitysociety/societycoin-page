@@ -64,6 +64,7 @@ const Card = (
                 src="./img/symbol.png"
               />GIFTs
             </button>
+            <p className="coin-button-or">OR</p>
             <button onClick={handleOpen} className="coin-button-gift">
               Give
               <img
