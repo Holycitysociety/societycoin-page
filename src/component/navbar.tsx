@@ -73,7 +73,7 @@ function Navbar() {
             <Link to='/' className={classes.link}>
               Home
             </Link>
-            <Link to='/about' className={classes.link}>
+            <Link to='/societykey' className={classes.link}>
               Societykey
             </Link>
             <Link to='/' className={classes.link}>
