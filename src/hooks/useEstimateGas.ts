@@ -10,7 +10,7 @@ export default function useEstimateGas() {
   const SocietyCoinABI = new Interface(SocietyCoin);
   const { library } = useEthers();
 
-  const claimSocietyKeyGas = async (address: string) => {
+  const claimSocietyKeyGas = async (address: string | undefined) => {
     const contract = new Contract(
       SocietyKeyContract,
       SocietyKeyABI,
@@ -21,7 +21,7 @@ export default function useEstimateGas() {
     return estimatedGas;
   };
 
-  const claimSocietyCoinGas = async (address: string) => {
+  const claimSocietyCoinGas = async (address: string | undefined) => {
     const contract = new Contract(
       SocietyCoinContract,
       SocietyCoinABI,

@@ -22,8 +22,8 @@ export function useClaimSocietyKey() {
 export function useClaimSocietyCoin() {
   const { send, state } = useContractFunction(contractSC, 'claim');
   return {
-    claimSocietyKeyState: state,
-    claimSocietyKey: send,
+    claimSocietyCoinState: state,
+    claimSocietyCoin: send,
   };
 }
 

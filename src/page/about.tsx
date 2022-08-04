@@ -1,8 +1,8 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect, useCallback } from 'react';
 import { Container, Box } from '@material-ui/core';
 import { Button, Grid } from '@mui/material';
-import { useEthers, shortenAddress } from '@usedapp/core';
-
+import { useEthers, shortenAddress, TransactionStatus } from '@usedapp/core';
+import { toast } from 'react-toastify';
 import Card from './card';
 import WalletConnectionModal from '../component/walletmodal';
 import {
@@ -10,18 +10,108 @@ import {
   useSocietyCoinBalance,
   useSocietyKeyGift,
   useSocietyCoinGift,
+  useClaimSocietyKey,
+  useClaimSocietyCoin,
 } from '../hooks/useContract';
+import useEstimateGas from '../hooks/useEstimateGas';
 import { BIG_ZERO } from '../global/constants';
 
 import './about.scss';
 
+const toastMsg = (state: TransactionStatus) => {
+  if (state.status === 'PendingSignature')
+    toast.info('Waiting for signature', {
+      position: toast.POSITION.BOTTOM_RIGHT,
+      hideProgressBar: true,
+    });
+
+  if (state.status === 'Exception')
+    toast.warning('User denied signature', {
+      position: toast.POSITION.BOTTOM_RIGHT,
+      hideProgressBar: true,
+    });
+
+  if (state.status === 'Mining')
+    toast.info('Pending transaction', {
+      position: toast.POSITION.BOTTOM_RIGHT,
+      hideProgressBar: true,
+    });
+
+  if (state.status === 'Success')
+    toast.success('Successfully confirmed', {
+      position: toast.POSITION.BOTTOM_RIGHT,
+      hideProgressBar: true,
+    });
+};
+
 const About = () => {
   const [wallet, setWallet] = useState(false);
   const { account } = useEthers();
+  const { claimSocietyKeyGas, claimSocietyCoinGas } = useEstimateGas();
   const societyKeyBalance = useSocietyKeyBalance(account);
   const societyCoinBalance = useSocietyCoinBalance(account);
   const societyKeyGift = useSocietyKeyGift(account);
   const societyCoinGift = useSocietyCoinGift(account);
+  const { claimSocietyKeyState, claimSocietyKey } = useClaimSocietyKey();
+  const { claimSocietyCoinState, claimSocietyCoin } = useClaimSocietyCoin();
+
+  const claimSK = useCallback(
+    async (address: string | undefined = account) => {
+      console.log(address);
+      try {
+        const estimatedGas = await claimSocietyKeyGas(address);
+        claimSocietyKey(address, { gasLimit: estimatedGas });
+      } catch (error) {
+        if (error.error)
+          toast.error(
+            error.error.data.message.split('execution reverted: ').join(''),
+            {
+              position: toast.POSITION.BOTTOM_RIGHT,
+              hideProgressBar: true,
+            }
+          );
+        else
+          toast.error(error.message, {
+            position: toast.POSITION.BOTTOM_RIGHT,
+            hideProgressBar: true,
+          });
+      }
+    },
+    [account]
+  );
+
+  const claimSC = useCallback(
+    async (address: string | undefined = account) => {
+      console.log(address, 'SC');
+      try {
+        const estimatedGas = await claimSocietyCoinGas(address);
+        claimSocietyCoin(address, { gasLimit: estimatedGas });
+      } catch (error) {
+        if (error.error)
+          toast.error(
+            error.error.data.message.split('execution reverted: ').join(''),
+            {
+              position: toast.POSITION.BOTTOM_RIGHT,
+              hideProgressBar: true,
+            }
+          );
+        else
+          toast.error(error.message, {
+            position: toast.POSITION.BOTTOM_RIGHT,
+            hideProgressBar: true,
+          });
+      }
+    },
+    [account]
+  );
+
+  useEffect(() => {
+    toastMsg(claimSocietyKeyState);
+  }, [claimSocietyKeyState]);
+
+  useEffect(() => {
+    toastMsg(claimSocietyCoinState);
+  }, [claimSocietyCoinState]);
 
   const adata = useMemo(
     () => [
@@ -31,6 +121,7 @@ const About = () => {
         coinmoney: societyCoinBalance,
         gifttitle: 'SOCIETY GOOD WORKS GIFTED',
         giftmoney: societyCoinGift,
+        claim: claimSC,
       },
       {
         imgurl: './img/skey.png',
@@ -38,6 +129,7 @@ const About = () => {
         coinmoney: societyKeyBalance,
         gifttitle: 'SOCIETY GOOD WORKS GIFTED',
         giftmoney: societyKeyGift,
+        claim: claimSK,
       },
     ],
     [societyKeyBalance, societyCoinBalance, societyKeyGift, societyCoinGift]
@@ -105,30 +197,18 @@ const About = () => {
         <div className='claim-gifts'>
           <div>
             <Grid container columns={12}>
-              {adata.map((item, index) => (
+              {adata.map(({ ...item }, index) => (
                 <Grid item xs={12} mt={2} key={index}>
-                  <Card
-                    imgurl={item.imgurl}
-                    cointitle={item.cointitle}
-                    coinmoney={item.coinmoney}
-                    gifttitle={item.gifttitle}
-                    giftmoney={item.giftmoney}
-                  />
+                  <Card {...item} />
                 </Grid>
               ))}
             </Grid>
 
             <Grid container columns={12}>
-              {bdata.map((item, index) => (
+              {bdata.map(({ coming, ...item }, index) => (
                 <Grid item xs={12} key={index}>
-                  <p className='claim-gifts-title-name'>{item.coming}</p>
-                  <Card
-                    imgurl={item.imgurl}
-                    cointitle={item.cointitle}
-                    coinmoney={item.coinmoney}
-                    gifttitle={item.gifttitle}
-                    giftmoney={item.giftmoney}
-                  />
+                  <p className='claim-gifts-title-name'>{coming}</p>
+                  <Card {...item} />
                 </Grid>
               ))}
             </Grid>

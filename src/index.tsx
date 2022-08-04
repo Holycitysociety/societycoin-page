@@ -1,6 +1,7 @@
 import { createRoot } from 'react-dom/client';
 import { ChainId, DAppProvider, Polygon } from '@usedapp/core';
 import { Buffer } from 'buffer';
+import 'react-toastify/dist/ReactToastify.css';
 
 import App from './App';
 import './styles.scss';

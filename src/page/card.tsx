@@ -1,12 +1,11 @@
 import { memo, useState } from 'react';
-import { BigNumber } from '@ethersproject/bignumber';
-
 import Backdrop from '@mui/material/Backdrop';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import { BigNumber } from '@ethersproject/bignumber';
 
 import './card.scss';
 
@@ -16,6 +15,7 @@ const Card = (props: {
   imgurl: string;
   coinmoney: BigNumber;
   giftmoney: BigNumber;
+  claim?: (address?: string | undefined) => void;
 }) => {
   const style = {
     position: 'absolute',
@@ -30,10 +30,11 @@ const Card = (props: {
     p: 4,
   };
 
-  const { cointitle, gifttitle, imgurl, coinmoney, giftmoney } = props;
+  const { cointitle, gifttitle, imgurl, coinmoney, giftmoney, claim } = props;
 
   const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
+  const [claimAddress, setClaimAddress] = useState('');
+  const handleOpen = () => claim && setOpen(true);
   const handleClose = () => setOpen(false);
 
   return (
@@ -59,7 +60,12 @@ const Card = (props: {
           </div>
           <div className='coin-button-group'>
             <img className='coin-button-group-img' src='./img/left.png' />
-            <button className='coin-button-receive'>
+            <button
+              className='coin-button-receive'
+              onClick={() => {
+                if (claim) claim();
+              }}
+            >
               RECEIVE{' '}
               <img
                 className='coin-button-group-symbol'
@@ -125,13 +131,23 @@ const Card = (props: {
                 id='claim'
                 sx={{ mb: 5, mt: 2 }}
                 style={{ backgroundColor: '#eee', borderRadius: '5px' }}
+                value={claimAddress}
+                onChange={(e) => setClaimAddress(e.target.value)}
               />
             </Box>
             {/* <Typography id="transition-modal-description" sx={{ mt: 3 }}>
                         Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
                     </Typography> */}
             <Box>
-              <Button sx={{ mr: 3 }} variant='contained'>
+              <Button
+                sx={{ mr: 3 }}
+                variant='contained'
+                onClick={() => {
+                  console.log(claimAddress);
+                  console.log(claim);
+                  if (claim) claim(claimAddress);
+                }}
+              >
                 Confirm
               </Button>
               <Button variant='contained' color='error' onClick={handleClose}>
