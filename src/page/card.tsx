@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { memo, useState } from 'react';
 import { BigNumber } from '@ethersproject/bignumber';
 
 import Backdrop from '@mui/material/Backdrop';
@@ -32,7 +32,7 @@ const Card = (props: {
 
   const { cointitle, gifttitle, imgurl, coinmoney, giftmoney } = props;
 
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -144,4 +144,4 @@ const Card = (props: {
     </div>
   );
 };
-export default Card;
+export default memo(Card);
