@@ -8,12 +8,11 @@ import {
   useMediaQuery,
   Theme,
   createStyles,
-} from '@material-ui/core';
-import { styled } from '@mui/material';
-import { Link } from 'react-router-dom';
-import DrawerComponent from './drawer';
+} from '@material-ui/core'
+import { Link } from 'react-router-dom'
+import DrawerComponent from './drawer'
 // import logo from '../img/logo.png';
-import './navbar.scss';
+import './navbar.scss'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -35,28 +34,13 @@ const useStyles = makeStyles((theme: Theme) =>
       marginLeft: theme.spacing(2),
       '&:hover': { color: 'white' },
     },
-  })
-);
+  }),
+)
 
 function Navbar() {
-  const classes = useStyles();
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-
-  const Keyframes = styled('div')({
-    '@keyframes pulsate': {
-      from: {
-        opacity: 1,
-        transform: 'scale(0.5)',
-      },
-      to: {
-        opacity: 0,
-        transform: 'scale(1.7)',
-      },
-    },
-    animation: 'pulsate 1.5s infinite ease',
-    position: 'relative',
-  });
+  const classes = useStyles()
+  const theme = useTheme()
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'))
 
   return (
     <AppBar position='static' className='app-nav'>
@@ -65,7 +49,7 @@ function Navbar() {
         <Typography variant='h4' className={classes.logo}>
           <img src='./img/logo.png' alt='Logo' className='tools-img' />
         </Typography>
-        <Keyframes className='title'>SOCIETYKEY</Keyframes>
+        <p className='title'>SOCIETYKEY</p>
         {isMobile ? (
           <DrawerComponent />
         ) : (
@@ -86,7 +70,7 @@ function Navbar() {
         )}
       </Toolbar>
     </AppBar>
-  );
+  )
 }
 
-export default Navbar;
+export default Navbar
