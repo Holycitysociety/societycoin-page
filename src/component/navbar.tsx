@@ -50,8 +50,8 @@ function Navbar() {
           <img src='./img/logo.png' alt='Logo' className='tools-img' />
         </Typography>
         <p className='title'>SOCIETYKEY</p>
-        {isMobile ? (
-          <DrawerComponent />
+        <DrawerComponent />
+        {/* {isMobile ? (
         ) : (
           <div className={classes.navlinks}>
             <Link to='/' className={classes.link}>
@@ -67,7 +67,7 @@ function Navbar() {
               Society Rides
             </Link>
           </div>
-        )}
+        )} */}
       </Toolbar>
     </AppBar>
   )
