@@ -1,21 +1,21 @@
-import { memo, useState } from 'react';
-import Backdrop from '@mui/material/Backdrop';
-import Modal from '@mui/material/Modal';
-import Fade from '@mui/material/Fade';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import { BigNumber } from '@ethersproject/bignumber';
+import { memo, useState } from 'react'
+import Backdrop from '@mui/material/Backdrop'
+import Modal from '@mui/material/Modal'
+import Fade from '@mui/material/Fade'
+import Box from '@mui/material/Box'
+import TextField from '@mui/material/TextField'
+import Button from '@mui/material/Button'
+import { BigNumber } from '@ethersproject/bignumber'
 
-import './card.scss';
+import './card.scss'
 
 const Card = (props: {
-  cointitle: string;
-  gifttitle: string;
-  imgurl: string;
-  coinmoney: BigNumber;
-  giftmoney: BigNumber;
-  claim?: (address?: string | undefined) => void;
+  cointitle: string
+  gifttitle: string
+  imgurl: string
+  coinmoney: BigNumber
+  giftmoney: BigNumber
+  claim?: (address?: string | undefined) => void
 }) => {
   const style = {
     position: 'absolute',
@@ -23,19 +23,19 @@ const Card = (props: {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: 400,
-    bgcolor: '#00032b',
+    bgcolor: '#181b3f',
     border: '1px solid #00032b',
     borderRadius: '10px',
     boxShadow: 24,
     p: 4,
-  };
+  }
 
-  const { cointitle, gifttitle, imgurl, coinmoney, giftmoney, claim } = props;
+  const { cointitle, gifttitle, imgurl, coinmoney, giftmoney, claim } = props
 
-  const [open, setOpen] = useState(false);
-  const [claimAddress, setClaimAddress] = useState('');
-  const handleOpen = () => claim && setOpen(true);
-  const handleClose = () => setOpen(false);
+  const [open, setOpen] = useState(false)
+  const [claimAddress, setClaimAddress] = useState('')
+  const handleOpen = () => claim && setOpen(true)
+  const handleClose = () => setOpen(false)
 
   return (
     <div>
@@ -63,7 +63,7 @@ const Card = (props: {
             <button
               className='coin-button-receive'
               onClick={() => {
-                if (claim) claim();
+                if (claim) claim()
               }}
             >
               RECEIVE{' '}
@@ -71,16 +71,16 @@ const Card = (props: {
                 className='coin-button-group-symbol'
                 src='./img/symbol.png'
               />
-              GIFTs
+              GIFTS
             </button>
             <p className='coin-button-or'>OR</p>
             <button onClick={handleOpen} className='coin-button-gift'>
-              Give
+              GIVE
               <img
                 className='coin-button-group-symbol'
                 src='./img/symbol.png'
               />
-              GIFTs
+              GIFTS
             </button>
             <img className='coin-button-group-img' src='./img/right.png' />
           </div>
@@ -98,7 +98,7 @@ const Card = (props: {
         }}
       >
         <Fade in={open}>
-          <Box sx={style}>
+          <Box sx={style} className='give-modal'>
             {/* <Typography id="transition-modal-title" variant="h6" component="h2">
                         Claim
                     </Typography> */}
@@ -140,12 +140,13 @@ const Card = (props: {
                     </Typography> */}
             <Box>
               <Button
+                className='card-modal-button'
                 sx={{ mr: 3 }}
                 variant='contained'
                 onClick={() => {
-                  console.log(claimAddress);
-                  console.log(claim);
-                  if (claim) claim(claimAddress);
+                  console.log(claimAddress)
+                  console.log(claim)
+                  if (claim) claim(claimAddress)
                 }}
               >
                 Confirm
@@ -158,6 +159,6 @@ const Card = (props: {
         </Fade>
       </Modal>
     </div>
-  );
-};
-export default memo(Card);
+  )
+}
+export default memo(Card)

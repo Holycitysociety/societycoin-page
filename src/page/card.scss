@@ -1,5 +1,5 @@
 .coin-total {
-  font-family: 'Avenir Next Condensed' !important;
+  font-family: "Avenir Next Condensed" !important;
   display: flex;
   justify-content: space-between;
   /* border: 1px solid; */
@@ -25,6 +25,7 @@
   align-items: center;
   padding-top: 10px;
   font-size: 20px;
+  letter-spacing: 0.1em;
 }
 
 .coin-gift {
@@ -32,6 +33,7 @@
   justify-content: space-between;
   padding-top: 10px;
   font-size: 19px;
+  letter-spacing: 0.1em;
 }
 
 .coin-button-group {
@@ -68,12 +70,13 @@
 }
 
 .coin-button-receive {
+  font-size: 14px;
   width: 145px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.2em;
   background-color: #7e818d;
   color: #ffffff;
   // color: #d0d1d5;
@@ -95,15 +98,17 @@
 
 .coin-button-or {
   font-size: 18px;
+  margin: 0px 2px;
 }
 
 .coin-button-gift {
+  font-size: 14px;
   width: 145px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.3em;
   background-color: #7e818d;
   color: #ffffff;
   // color: #d0d1d5;
@@ -125,14 +130,26 @@
   // background-color: transparent;
 }
 
+// .give-modal{}
+
+// .paper {
+//   @media screen and (max-width: 720px) {
+//     width: calc(100% - 20px);
+//   }
+// }
+
+.card-modal-button {
+  background-color: #211d8f !important;
+}
+
 .coin-button-group-img {
-  width: 14px;
-  height: 20px;
+  width: 17px;
+  height: 24px;
 }
 
 .coin-button-group-symbol {
-  width: 10px;
-  height: 17px;
+  width: 8px;
+  height: 13.6px;
   margin: 0px 4px;
 }
 
@@ -142,7 +159,7 @@
   }
 
   .coin-total {
-    padding: 10px 10px;
+    padding: 10px 9px;
   }
 
   .coin-img {
@@ -163,6 +180,7 @@
   .coin-number {
     padding-top: 9px;
     font-size: 15px;
+    letter-spacing: 0.1em;
   }
 
   .coin-number-symbol {
@@ -174,6 +192,7 @@
   .coin-gift {
     padding-top: 9px;
     font-size: 12px;
+    letter-spacing: 0.1em;
   }
 
   .coin-button-group {
@@ -185,6 +204,12 @@
     height: 16px;
   }
 
+  .coin-button-group-symbol {
+    width: 8px;
+    height: 13.6px;
+    margin: 0px 4px;
+  }
+
   .coin-button {
     font-size: 10px;
     letter-spacing: 0.1em;
@@ -193,20 +218,21 @@
   }
 
   .coin-button-receive {
-    font-size: 9px;
+    font-size: 11px;
     width: 95.08px;
-    padding: 3px 9px;
+    padding: 2px 6px;
     margin: 0px 2px;
   }
 
   .coin-button-or {
     font-size: 11px;
+    margin: 0px 1px;
   }
 
   .coin-button-gift {
-    font-size: 9px;
+    font-size: 11px;
     width: 95.08px;
-    padding: 3px 9px;
+    padding: 2px 6px;
     margin: 0px 2px;
     letter-spacing: 0.2em;
   }
@@ -215,5 +241,11 @@
     width: 7px;
     height: 10px;
     margin: 0px 2px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .give-modal {
+    width: calc(100% - 20px) !important;
   }
 }

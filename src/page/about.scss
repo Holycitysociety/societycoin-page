@@ -5,6 +5,10 @@
   // background-repeat: repeat-x;
 }
 
+button {
+  font-family: 'Avenir Next Condensed' !important;
+}
+
 .claim {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -32,6 +36,7 @@
   // color: #d0d1d5 !important;
   color: #ffffff !important;
   font-size: 20px !important;
+  letter-spacing: 0.1em !important;
 }
 
 .total-balance {
@@ -43,9 +48,9 @@
   justify-content: center;
   // color: #383d4e !important;
   color: #838487 !important;
-  font-size: 25px;
+  font-size: 30px;
   margin: 0px;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.1em;
 }
 
 .balance-number {
@@ -104,6 +109,7 @@ p {
   .connects-button {
     width: 50px;
     font-size: 11px !important;
+    letter-spacing: 0.1em !important;
   }
 
   .balance-title {
