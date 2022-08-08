@@ -16,6 +16,8 @@ import { Link } from 'react-router-dom'
 import MenuIcon from '@material-ui/icons/Menu'
 import CloseIcon from '@material-ui/icons/Close'
 
+import './drawer.scss'
+
 const useStyles = makeStyles(() =>
   createStyles({
     link: {
@@ -35,14 +37,14 @@ function DrawerComponent() {
   const [openDrawer, setOpenDrawer] = useState(false)
 
   return (
-    <>
+    <div>
       <Drawer
         anchor='top'
         style={{ width: 250 }}
         open={openDrawer}
         onClose={() => setOpenDrawer(false)}
       >
-        <Toolbar style={{ backgroundColor: '#0b1127' }}>
+        <Toolbar className='drawer-head'>
           <Typography variant='h4' className={classes.logo}>
             SOCIETYKEY
           </Typography>
@@ -51,7 +53,7 @@ function DrawerComponent() {
             onClick={() => setOpenDrawer(false)}
           />
         </Toolbar>
-        <Box style={{ backgroundColor: '#0b1127' }}>
+        <Box className='drawer-middle'>
           <List>
             <Divider />
             <ListItem onClick={() => setOpenDrawer(false)}>
@@ -72,18 +74,21 @@ function DrawerComponent() {
             <Divider />
             <ListItem onClick={() => setOpenDrawer(false)}>
               <ListItemText>
-                <Link to='/' className={classes.link}>
+                <a
+                  href='http://localist.societykey.io/'
+                  className={classes.link}
+                >
                   Society Localist
-                </Link>
+                </a>
               </ListItemText>
             </ListItem>
             <Divider />
             <ListItem onClick={() => setOpenDrawer(false)}>
-              <ListItemText>
-                <Link to='/' className={classes.link}>
-                  Society Rides
-                </Link>
-              </ListItemText>
+              {/* <ListItemText> */}
+              <a href='https://www.societyrides.com/' className={classes.link}>
+                Society Rides
+              </a>
+              {/* </ListItemText> */}
             </ListItem>
             <Divider />
           </List>
@@ -95,7 +100,7 @@ function DrawerComponent() {
       >
         <MenuIcon />
       </IconButton>
-    </>
+    </div>
   )
 }
 

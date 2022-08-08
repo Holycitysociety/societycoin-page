@@ -22,7 +22,7 @@
       font-family: 'Avenir Next Condensed';
       font-weight: 600;
 
-      & > img {
+      &>img {
         height: 36px;
         margin-left: 36px;
         margin-right: 26px;
@@ -35,7 +35,7 @@
       justify-content: center;
     }
 
-    .paper .heading > img {
+    .paper .heading>img {
       display: none;
     }
 
@@ -49,7 +49,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #181b3f;
+    background-color: #2a2d3c;
     border-radius: 20px;
 
     .button {
@@ -64,16 +64,16 @@
       font-family: 'Avenir Next Condensed';
 
       font-size: 22px;
-      border: 2px solid #211d8f;
+      border: 2px solid #7e818d;
       border-radius: 12px;
-      background-color: #0b1127;
+      background-color: #7e818d;
 
       &.selected {
-        border: 2px solid #211d8f;
+        border: 2px solid #7e818d;
       }
 
       &:hover {
-        background-color: #211d8f;
+        background-color: #7e818d;
       }
 
       img {
@@ -91,7 +91,7 @@
 
         font-weight: 500;
 
-        & > small {
+        &>small {
           margin-top: 5px;
           font-weight: 400;
           color: #ffffff;
@@ -114,7 +114,7 @@
       font-weight: 500;
       margin-top: 10px;
       font-family: 'Avenir Next Condensed';
-      border: 1px solid #211d8f;
+      border: 1px solid #7e818d;
       border-radius: 0;
       padding: 12px 20px !important;
       height: initial;

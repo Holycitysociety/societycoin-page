@@ -23,8 +23,8 @@ const Card = (props: {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: 400,
-    bgcolor: '#181b3f',
-    border: '1px solid #00032b',
+    bgcolor: '#2a2d3c',
+    border: '1px solid #2a2d3c',
     borderRadius: '10px',
     boxShadow: 24,
     p: 4,
@@ -71,7 +71,7 @@ const Card = (props: {
                 className='coin-button-group-symbol'
                 src='./img/symbol.png'
               />
-              GIFTS
+              GIFT
             </button>
             <p className='coin-button-or'>OR</p>
             <button onClick={handleOpen} className='coin-button-gift'>
@@ -80,7 +80,7 @@ const Card = (props: {
                 className='coin-button-group-symbol'
                 src='./img/symbol.png'
               />
-              GIFTS
+              GIFT
             </button>
             <img className='coin-button-group-img' src='./img/right.png' />
           </div>
@@ -117,7 +117,7 @@ const Card = (props: {
                 style={{ width: '11px', height: '20px', margin: '0px 6px' }}
                 src='./img/symbol.png'
               />
-              GIFTS
+              GIFT
             </p>
             <Box
               sx={{
@@ -125,9 +125,16 @@ const Card = (props: {
                 maxWidth: '100%',
               }}
             >
+              {/* <input
+                value={claimAddress}
+                onChange={(e) => setClaimAddress(e.target.value)}
+                placeholder='RECIPIENT ADDRESS'
+                id='claim'
+                type='text'
+              ></input> */}
               <TextField
                 fullWidth
-                label='claim address'
+                label='RECIPIENT ADDRESS'
                 id='claim'
                 sx={{ mb: 5, mt: 2 }}
                 style={{ backgroundColor: '#eee', borderRadius: '5px' }}
@@ -151,7 +158,11 @@ const Card = (props: {
               >
                 Confirm
               </Button>
-              <Button variant='contained' color='error' onClick={handleClose}>
+              <Button
+                variant='contained'
+                className='card-modal-button-a'
+                onClick={handleClose}
+              >
                 Cancel
               </Button>
             </Box>

@@ -5,8 +5,9 @@
   /* border: 1px solid; */
   border-radius: 10px;
   padding: 10px 20px;
-  background-color: #2e3346;
+  background-color: #2a2d3c;
   opacity: 0.5;
+  border: none;
 }
 
 .coin-total:hover {
@@ -144,7 +145,11 @@
 // }
 
 .card-modal-button {
-  background-color: #211d8f !important;
+  background-color: #7e818d !important;
+}
+
+.card-modal-button-a {
+  background-color: #7e818d !important;
 }
 
 .coin-button-group-img {
@@ -164,8 +169,14 @@
   }
 
   .coin-total {
-    padding: 10px 9px;
+    padding: 10px 12px;
+    opacity: 1;
   }
+
+  .coin-total:hover {
+    opacity: 1;
+  }
+
 
   .coin-img {
     display: flex;
@@ -179,7 +190,7 @@
   }
 
   .coin-content {
-    padding-left: 20px;
+    padding-left: 12px;
   }
 
   .coin-number {

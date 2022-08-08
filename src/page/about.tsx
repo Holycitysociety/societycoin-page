@@ -119,7 +119,7 @@ const About = () => {
         imgurl: './img/scoin.png',
         cointitle: 'SOCIETYCOIN',
         coinmoney: societyCoinBalance,
-        gifttitle: 'SOCIETY GOOD WORKS GIFTED',
+        gifttitle: 'SOCIETY GOOD WORKS GIFT',
         giftmoney: societyCoinGift,
         claim: claimSC,
       },
@@ -127,7 +127,7 @@ const About = () => {
         imgurl: './img/skey.png',
         cointitle: 'SOCIETYKEY',
         coinmoney: societyKeyBalance,
-        gifttitle: 'SOCIETY GOOD WORKS GIFTED',
+        gifttitle: 'SOCIETY GOOD WORKS GIFT',
         giftmoney: societyKeyGift,
         claim: claimSK,
       },
@@ -141,7 +141,7 @@ const About = () => {
         imgurl: './img/s20.png',
         cointitle: 'SOCIETYH20',
         coinmoney: BIG_ZERO,
-        gifttitle: 'SOCIETY GOOD WORKS GIFTED',
+        gifttitle: 'SOCIETY GOOD WORKS GIFT',
         giftmoney: BIG_ZERO,
       },
       {
@@ -149,7 +149,7 @@ const About = () => {
         imgurl: './img/sgood.png',
         cointitle: 'SOCIETYGOOD',
         coinmoney: BIG_ZERO,
-        gifttitle: 'SOCIETY GOOD WORKS GIFTED',
+        gifttitle: 'SOCIETY GOOD WORKS GIFT',
         giftmoney: BIG_ZERO,
       },
     ],
@@ -169,17 +169,31 @@ const About = () => {
                 setWallet(true)
               }}
             >
-              {account ? shortenAddress(account) : 'CONNECT WALLET'}
+              {account ? (
+                shortenAddress(account)
+              ) : (
+                <>
+                  CONNECT
+                  <br />
+                  WALLET
+                </>
+              )}
+              <i className='fa-regular fa-copy'></i>
             </Button>
           </div>
           <div className='total-balance'>
             <p className='balance-title'>TOTAL BALANCE</p>
             <p className='balance-number'>
-              <span className='balance-number-money'>??? </span>
+              <span className='balance-number-money'>
+                {(societyCoinBalance &&
+                  societyKeyBalance &&
+                  Number(societyCoinBalance.add(societyKeyBalance)) / 1e18) ||
+                  0}
+              </span>
               <img className='balance-number-img' src='./img/symbol.png' />
             </p>
           </div>
-          <div className='gifts'>
+          {/* <div className='gifts'>
             <p className='gifts-title'>LIFETIME GIFTS RECEIVED</p>
             <p className='gifts-number'>
               <span className='gifts-number-money'>??? </span>
@@ -192,7 +206,7 @@ const About = () => {
               <span className='gifts-number-money'>??? </span>
               <img className='gifts-number-img' src='./img/symbol.png' />
             </p>
-          </div>
+          </div> */}
         </div>
         <div className='claim-gifts'>
           <div>
