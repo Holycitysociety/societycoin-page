@@ -59,7 +59,7 @@ function DrawerComponent() {
             <ListItem onClick={() => setOpenDrawer(false)}>
               <ListItemText>
                 <Link to='/' className={classes.link}>
-                  Home
+                  HOME
                 </Link>
               </ListItemText>
             </ListItem>
@@ -67,7 +67,7 @@ function DrawerComponent() {
             <ListItem onClick={() => setOpenDrawer(false)}>
               <ListItemText>
                 <Link to='/societykey' className={classes.link}>
-                  Societykey
+                  SOCIETYKEY
                 </Link>
               </ListItemText>
             </ListItem>
@@ -78,7 +78,7 @@ function DrawerComponent() {
                   href='http://localist.societykey.io/'
                   className={classes.link}
                 >
-                  Society Localist
+                  SOCIETY LOCALIST
                 </a>
               </ListItemText>
             </ListItem>
@@ -86,7 +86,7 @@ function DrawerComponent() {
             <ListItem onClick={() => setOpenDrawer(false)}>
               {/* <ListItemText> */}
               <a href='https://www.societyrides.com/' className={classes.link}>
-                Society Rides
+                SOCIETY RIDES
               </a>
               {/* </ListItemText> */}
             </ListItem>
