@@ -1,10 +1,10 @@
-import { useState, useMemo, useEffect, useCallback } from 'react'
-import { Container, Box } from '@material-ui/core'
-import { Button, Grid } from '@mui/material'
-import { useEthers, shortenAddress, TransactionStatus } from '@usedapp/core'
-import { toast } from 'react-toastify'
-import Card from './card'
-import WalletConnectionModal from '../component/walletmodal'
+import { useState, useMemo, useEffect, useCallback } from 'react';
+import { Container, Box, useMediaQuery, useTheme } from '@material-ui/core';
+import { Button, Grid } from '@mui/material';
+import { useEthers, shortenAddress, TransactionStatus } from '@usedapp/core';
+import { toast } from 'react-toastify';
+import Card from './card';
+import WalletConnectionModal from '../component/walletmodal';
 import {
   useSocietyKeyBalance,
   useSocietyCoinBalance,
@@ -12,55 +12,58 @@ import {
   useSocietyCoinGift,
   useClaimSocietyKey,
   useClaimSocietyCoin,
-} from '../hooks/useContract'
-import useEstimateGas from '../hooks/useEstimateGas'
-import { BIG_ZERO } from '../global/constants'
+} from '../hooks/useContract';
+import useEstimateGas from '../hooks/useEstimateGas';
+import { SocietyKeyContract, SocietyCoinContract } from '../global/constants';
+import { BIG_ZERO } from '../global/constants';
 
-import './about.scss'
+import './about.scss';
 
 const toastMsg = (state: TransactionStatus) => {
   if (state.status === 'PendingSignature')
     toast.info('Waiting for signature', {
       position: toast.POSITION.BOTTOM_RIGHT,
       hideProgressBar: true,
-    })
+    });
 
   if (state.status === 'Exception')
     toast.warning('User denied signature', {
       position: toast.POSITION.BOTTOM_RIGHT,
       hideProgressBar: true,
-    })
+    });
 
   if (state.status === 'Mining')
     toast.info('Pending transaction', {
       position: toast.POSITION.BOTTOM_RIGHT,
       hideProgressBar: true,
-    })
+    });
 
   if (state.status === 'Success')
     toast.success('Successfully confirmed', {
       position: toast.POSITION.BOTTOM_RIGHT,
       hideProgressBar: true,
-    })
-}
+    });
+};
 
 const About = () => {
-  const [wallet, setWallet] = useState(false)
-  const { account } = useEthers()
-  const { claimSocietyKeyGas, claimSocietyCoinGas } = useEstimateGas()
-  const societyKeyBalance = useSocietyKeyBalance(account)
-  const societyCoinBalance = useSocietyCoinBalance(account)
-  const societyKeyGift = useSocietyKeyGift(account)
-  const societyCoinGift = useSocietyCoinGift(account)
-  const { claimSocietyKeyState, claimSocietyKey } = useClaimSocietyKey()
-  const { claimSocietyCoinState, claimSocietyCoin } = useClaimSocietyCoin()
+  const [wallet, setWallet] = useState(false);
+  const { account } = useEthers();
+  const { claimSocietyKeyGas, claimSocietyCoinGas } = useEstimateGas();
+  const societyKeyBalance = useSocietyKeyBalance(account);
+  const societyCoinBalance = useSocietyCoinBalance(account);
+  const societyKeyGift = useSocietyKeyGift(account);
+  const societyCoinGift = useSocietyCoinGift(account);
+  const { claimSocietyKeyState, claimSocietyKey } = useClaimSocietyKey();
+  const { claimSocietyCoinState, claimSocietyCoin } = useClaimSocietyCoin();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   const claimSK = useCallback(
     async (address: string | undefined = account) => {
-      console.log(address)
+      console.log(address);
       try {
-        const estimatedGas = await claimSocietyKeyGas(address)
-        claimSocietyKey(address, { gasLimit: estimatedGas })
+        const estimatedGas = await claimSocietyKeyGas(address);
+        claimSocietyKey(address, { gasLimit: estimatedGas });
       } catch (error) {
         if (error.error)
           toast.error(
@@ -68,24 +71,24 @@ const About = () => {
             {
               position: toast.POSITION.BOTTOM_RIGHT,
               hideProgressBar: true,
-            },
-          )
+            }
+          );
         else
           toast.error(error.message, {
             position: toast.POSITION.BOTTOM_RIGHT,
             hideProgressBar: true,
-          })
+          });
       }
     },
-    [account],
-  )
+    [account]
+  );
 
   const claimSC = useCallback(
     async (address: string | undefined = account) => {
-      console.log(address, 'SC')
+      console.log(address, 'SC');
       try {
-        const estimatedGas = await claimSocietyCoinGas(address)
-        claimSocietyCoin(address, { gasLimit: estimatedGas })
+        const estimatedGas = await claimSocietyCoinGas(address);
+        claimSocietyCoin(address, { gasLimit: estimatedGas });
       } catch (error) {
         if (error.error)
           toast.error(
@@ -93,25 +96,25 @@ const About = () => {
             {
               position: toast.POSITION.BOTTOM_RIGHT,
               hideProgressBar: true,
-            },
-          )
+            }
+          );
         else
           toast.error(error.message, {
             position: toast.POSITION.BOTTOM_RIGHT,
             hideProgressBar: true,
-          })
+          });
       }
     },
-    [account],
-  )
+    [account]
+  );
 
   useEffect(() => {
-    toastMsg(claimSocietyKeyState)
-  }, [claimSocietyKeyState])
+    toastMsg(claimSocietyKeyState);
+  }, [claimSocietyKeyState]);
 
   useEffect(() => {
-    toastMsg(claimSocietyCoinState)
-  }, [claimSocietyCoinState])
+    toastMsg(claimSocietyCoinState);
+  }, [claimSocietyCoinState]);
 
   const adata = useMemo(
     () => [
@@ -122,6 +125,9 @@ const About = () => {
         gifttitle: 'SOCIETY GOOD WORKS GIFT',
         giftmoney: societyCoinGift,
         claim: claimSC,
+        copyAddress: () => {
+          navigator.clipboard.writeText(SocietyKeyContract);
+        },
       },
       {
         imgurl: './img/skey.png',
@@ -130,10 +136,13 @@ const About = () => {
         gifttitle: 'SOCIETY GOOD WORKS GIFT',
         giftmoney: societyKeyGift,
         claim: claimSK,
+        copyAddress: () => {
+          navigator.clipboard.writeText(SocietyCoinContract);
+        },
       },
     ],
-    [societyKeyBalance, societyCoinBalance, societyKeyGift, societyCoinGift],
-  )
+    [societyKeyBalance, societyCoinBalance, societyKeyGift, societyCoinGift]
+  );
   const bdata = useMemo(
     () => [
       {
@@ -153,8 +162,8 @@ const About = () => {
         giftmoney: BIG_ZERO,
       },
     ],
-    [],
-  )
+    []
+  );
 
   return (
     <Box className='claims'>
@@ -166,15 +175,14 @@ const About = () => {
               variant='contained'
               className='connects-button'
               onClick={() => {
-                setWallet(true)
+                setWallet(true);
               }}
             >
               {account ? (
                 shortenAddress(account)
               ) : (
                 <>
-                  CONNECT
-                  <br />
+                  CONNECT {isMobile && <br />}
                   WALLET
                 </>
               )}
@@ -185,10 +193,12 @@ const About = () => {
             <p className='balance-title'>TOTAL BALANCE</p>
             <p className='balance-number'>
               <span className='balance-number-money'>
-                {(societyCoinBalance &&
-                  societyKeyBalance &&
-                  Number(societyCoinBalance.add(societyKeyBalance)) / 1e18) ||
-                  0}
+                {(
+                  (societyCoinBalance &&
+                    societyKeyBalance &&
+                    Number(societyCoinBalance.add(societyKeyBalance)) / 1e18) ||
+                  0
+                ).toFixed(4)}
               </span>
               <img className='balance-number-img' src='./img/symbol.png' />
             </p>
@@ -240,6 +250,6 @@ const About = () => {
         </div>
       </Container>
     </Box>
-  )
-}
-export default About
+  );
+};
+export default About;
