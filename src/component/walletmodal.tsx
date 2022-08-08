@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useLocalStorage } from '@usedapp/core/dist/esm/src/hooks';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
@@ -9,7 +10,6 @@ import MetamaskImage from '../img/wallet/metamask.svg';
 import WalletconnectImage from '../img/wallet/walletconnect.svg';
 
 import './walletmodal.scss';
-
 import { ChainId } from '@usedapp/core';
 import { InjectedConnector } from '@web3-react/injected-connector';
 import { WalletConnectConnector } from '@web3-react/walletconnect-connector';
@@ -60,7 +60,7 @@ const WalletConnectionModal = ({
   open: boolean;
   onClose: () => void;
 }) => {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useLocalStorage('naisWalletConnectedme');
   const { account, activate, deactivate, connector, chainId, switchNetwork } =
     useEthers();
 
