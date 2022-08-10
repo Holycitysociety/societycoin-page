@@ -65,17 +65,18 @@ const WalletConnectionModal = ({
   const { account, activate, deactivate, connector, chainId, switchNetwork } =
     useEthers()
 
-  // useEffect(() => {
-  //   if (account && chainId !== 137) {
-  //     setTimeout(() => {
-  //       deactivate();
-  //     }, 100);
-  //     switchNetwork(137);
-  //   } else if (!account && chainId === 137) {
-  //     if (value === 'metamask' || value === 'coinbase') activate(injected);
-  //     if (value === 'walletconnect') activate(walletconnect);
-  //   }
-  // }, [account, value, chainId, deactivate, activate, switchNetwork]);
+  useEffect(() => {
+    alert(chainId)
+    if (account && chainId !== 137) {
+      // setTimeout(() => {
+      //   deactivate();
+      // }, 100);
+      switchNetwork(137)
+    } else if (!account && chainId === 137) {
+      if (value === 'metamask' || value === 'coinbase') activate(injected)
+      if (value === 'walletconnect') activate(walletconnect)
+    }
+  }, [account, value, chainId, deactivate, activate, switchNetwork])
 
   return (
     <Modal
