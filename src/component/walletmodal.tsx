@@ -25,6 +25,7 @@ const walletconnect = new WalletConnectConnector({
   bridge: 'https://bridge.walletconnect.org',
   qrcode: true,
   supportedChainIds: [ChainId.Polygon],
+  chainId: ChainId.Polygon,
 })
 
 const activateInjectedProvider = (providerName: string) => {
