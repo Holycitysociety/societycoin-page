@@ -158,5 +158,92 @@ p {
     font-size: 15px;
   }
 
+}
 
+@media only screen and (max-width: 370px) {
+  .tools-img {
+    width: 37px;
+    height: 28px;
+  }
+
+  .title {
+    font-size: 16px;
+    letter-spacing: 0.2em;
+    margin: 20px 15px;
+  }
+
+  .coin-img-coin {
+    width: 47.1px;
+    height: 47px;
+  }
+
+  .coin-number {
+    padding-top: 9px;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+  }
+
+  .coin-number-symbol {
+    width: 5px;
+    height: 9px;
+    margin-left: 1px;
+  }
+
+  .coin-gift {
+    padding-top: 9px;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+  }
+
+  .coin-button-group-img {
+    width: 9px;
+    height: 13px;
+  }
+
+  .coin-button-receive {
+    font-size: 7px;
+    width: 65.08px;
+    padding: 2px 6px;
+    margin: 0px 2px;
+  }
+
+  .coin-button-or {
+    font-size: 9px;
+    margin: 0px 1px;
+  }
+
+  .coin-button-gift {
+    font-size: 7px;
+    width: 65.08px;
+    padding: 2px 6px;
+    margin: 0px 2px;
+    letter-spacing: 0.2em;
+  }
+
+  .claim-gifts-title-name {
+    font-size: 10px;
+  }
+
+  .connects-button {
+    font-size: 10px !important;
+  }
+
+  .balance-title {
+    font-size: 16px;
+    letter-spacing: 0.1em;
+  }
+
+  .balance-number {
+    font-size: 30px;
+  }
+
+  .balance-number-money {
+    padding-top: 0px;
+  }
+
+  .balance-number-img {
+    width: 12px;
+    height: 21px;
+    margin-left: 2px;
+  }
 }

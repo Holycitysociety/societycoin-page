@@ -221,8 +221,8 @@
   }
 
   .coin-button-group-symbol {
-    width: 8px;
-    height: 13.6px;
+    width: 6px;
+    height: 11px;
     margin: 0px 4px;
   }
 
@@ -253,15 +253,20 @@
     letter-spacing: 0.2em;
   }
 
-  .coin-button-group-symbol {
-    width: 7px;
-    height: 10px;
-    margin: 0px 2px;
-  }
 }
 
 @media screen and (max-width: 720px) {
   .give-modal {
     width: calc(100% - 20px) !important;
   }
+}
+
+@media screen and (max-width: 370px) {
+
+  .coin-button-group-symbol {
+    width: 4px;
+    height: 7px;
+    margin: 0px 2px;
+  }
+
 }
