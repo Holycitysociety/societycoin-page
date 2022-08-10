@@ -66,7 +66,7 @@ const WalletConnectionModal = ({
     useEthers()
 
   useEffect(() => {
-    alert(`${account}, {chainId}`)
+    alert(`${account}, ${chainId}`)
     if (account && chainId !== 137) {
       // setTimeout(() => {
       //   deactivate();
