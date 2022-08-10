@@ -66,11 +66,10 @@ const WalletConnectionModal = ({
     useEthers()
 
   useEffect(() => {
-    alert(`${account}, ${chainId}`)
     if (account && chainId !== 137) {
-      // setTimeout(() => {
-      //   deactivate();
-      // }, 100);
+      setTimeout(() => {
+        if (value === 'metamask' || value === 'coinbase') deactivate()
+      }, 100)
       switchNetwork(137)
     } else if (!account && chainId === 137) {
       if (value === 'metamask' || value === 'coinbase') activate(injected)
