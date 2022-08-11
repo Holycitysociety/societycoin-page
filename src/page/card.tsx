@@ -13,6 +13,7 @@ const Card = (props: {
   cointitle: string
   gifttitle: string
   imgurl: string
+  opacity?: string
   copycontract?: string
   coinmoney: BigNumber
   giftmoney: BigNumber
@@ -39,6 +40,7 @@ const Card = (props: {
     copycontract,
     coinmoney,
     giftmoney,
+    opacity,
     claim,
     copyAddress,
   } = props
@@ -50,7 +52,7 @@ const Card = (props: {
 
   return (
     <div>
-      <div className='coin-total'>
+      <div className={`coin-total ${opacity}`}>
         <div className='coin-img'>
           <img src={imgurl} alt='imgs' className='coin-img-coin' />
         </div>

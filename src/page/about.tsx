@@ -150,6 +150,7 @@ const About = () => {
       {
         coming: 'SOCIETY SUPPLYCHAIN (COMING SOON)',
         imgurl: './img/s20.png',
+        opacity: 'opacity',
         cointitle: 'SOCIETYH20',
         coinmoney: BIG_ZERO,
         gifttitle: 'SOCIETY GOOD WORKS GIFT',
@@ -158,6 +159,7 @@ const About = () => {
       {
         coming: 'SOCIETYGOOD WORKS FUNDING (COMING SOON)',
         imgurl: './img/sgood.png',
+        opacity: 'opacity',
         cointitle: 'SOCIETYGOOD',
         coinmoney: BIG_ZERO,
         gifttitle: 'SOCIETY GOOD WORKS GIFT',
