@@ -1,22 +1,23 @@
-import { memo, useState } from 'react';
-import Backdrop from '@mui/material/Backdrop';
-import Modal from '@mui/material/Modal';
-import Fade from '@mui/material/Fade';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import { BigNumber } from '@ethersproject/bignumber';
+import { memo, useState } from 'react'
+import Backdrop from '@mui/material/Backdrop'
+import Modal from '@mui/material/Modal'
+import Fade from '@mui/material/Fade'
+import Box from '@mui/material/Box'
+import TextField from '@mui/material/TextField'
+import Button from '@mui/material/Button'
+import { BigNumber } from '@ethersproject/bignumber'
 
-import './card.scss';
+import './card.scss'
 
 const Card = (props: {
-  cointitle: string;
-  gifttitle: string;
-  imgurl: string;
-  coinmoney: BigNumber;
-  giftmoney: BigNumber;
-  claim?: (address?: string | undefined) => void;
-  copyAddress?: () => void;
+  cointitle: string
+  gifttitle: string
+  imgurl: string
+  copycontract?: string
+  coinmoney: BigNumber
+  giftmoney: BigNumber
+  claim?: (address?: string | undefined) => void
+  copyAddress?: () => void
 }) => {
   const style = {
     position: 'absolute',
@@ -29,37 +30,45 @@ const Card = (props: {
     borderRadius: '10px',
     boxShadow: 24,
     p: 4,
-  };
+  }
 
   const {
     cointitle,
     gifttitle,
     imgurl,
+    copycontract,
     coinmoney,
     giftmoney,
     claim,
     copyAddress,
-  } = props;
+  } = props
 
-  const [open, setOpen] = useState(false);
-  const [claimAddress, setClaimAddress] = useState('');
-  const handleOpen = () => claim && setOpen(true);
-  const handleClose = () => setOpen(false);
+  const [open, setOpen] = useState(false)
+  const [claimAddress, setClaimAddress] = useState('')
+  const handleOpen = () => claim && setOpen(true)
+  const handleClose = () => setOpen(false)
 
   return (
-    <div
-      onClick={() => {
-        alert(`copied ${cointitle} address`);
-        if (copyAddress) copyAddress();
-      }}
-    >
+    <div>
       <div className='coin-total'>
         <div className='coin-img'>
           <img src={imgurl} alt='imgs' className='coin-img-coin' />
         </div>
         <div className='coin-content'>
           <div className='coin-number'>
-            <span>{cointitle}</span>
+            <p>
+              {cointitle}{' '}
+              {copycontract && (
+                <img
+                  className='coin-number-contract'
+                  src={copycontract}
+                  onClick={() => {
+                    alert(`copied ${cointitle} address`)
+                    if (copyAddress) copyAddress()
+                  }}
+                />
+              )}
+            </p>
             <p style={{ display: 'flex', alignItems: 'center' }}>
               <span>{(Number(coinmoney) / 1e18 || 0).toFixed(4)}</span>{' '}
               <img className='coin-number-symbol' src='./img/symbol.png' />{' '}
@@ -77,8 +86,8 @@ const Card = (props: {
             <button
               className='coin-button-receive'
               onClick={(e) => {
-                e.stopPropagation();
-                if (claim) claim();
+                e.stopPropagation()
+                if (claim) claim()
               }}
             >
               RECEIVE{' '}
@@ -166,10 +175,10 @@ const Card = (props: {
                 sx={{ mr: 3 }}
                 variant='contained'
                 onClick={(e) => {
-                  e.stopPropagation();
-                  console.log(claimAddress);
-                  console.log(claim);
-                  if (claim) claim(claimAddress);
+                  e.stopPropagation()
+                  console.log(claimAddress)
+                  console.log(claim)
+                  if (claim) claim(claimAddress)
                 }}
               >
                 Confirm
@@ -186,6 +195,6 @@ const Card = (props: {
         </Fade>
       </Modal>
     </div>
-  );
-};
-export default memo(Card);
+  )
+}
+export default memo(Card)

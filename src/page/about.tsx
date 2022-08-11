@@ -120,6 +120,7 @@ const About = () => {
     () => [
       {
         imgurl: './img/scoin.png',
+        copycontract: './img/copycontract.png',
         cointitle: 'SOCIETYCOIN',
         coinmoney: societyCoinBalance,
         gifttitle: 'SOCIETY GOOD WORKS GIFT',
@@ -131,6 +132,7 @@ const About = () => {
       },
       {
         imgurl: './img/skey.png',
+        copycontract: './img/copycontract.png',
         cointitle: 'SOCIETYKEY',
         coinmoney: societyKeyBalance,
         gifttitle: 'SOCIETY GOOD WORKS GIFT',
@@ -171,22 +173,25 @@ const About = () => {
       <Container className='claim'>
         <div className='claim-content'>
           <div className='connects-wallet'>
-            <Button
-              variant='contained'
-              className='connects-button'
-              onClick={() => {
-                setWallet(true)
-              }}
-            >
+            <Button variant='contained' className='connects-button'>
               {account ? (
                 shortenAddress(account)
               ) : (
-                <>
-                  CONNECT {isMobile && <br />}
-                  WALLET
-                </>
+                <div
+                  onClick={() => {
+                    setWallet(true)
+                  }}
+                >
+                  CONNECT WALLET
+                </div>
               )}
-              <i className='fa-regular fa-copy'></i>
+              <img
+                className='connects-button-refresh'
+                src='./img/refresh.PNG'
+                onClick={() => {
+                  window.location.reload()
+                }}
+              />
             </Button>
           </div>
           <div className='total-balance'>

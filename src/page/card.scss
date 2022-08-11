@@ -6,13 +6,13 @@
   border-radius: 10px;
   padding: 10px 20px;
   background-color: #2a2d3c;
-  opacity: 0.5;
+  // opacity: 0.5;
   border: none;
 }
 
-.coin-total:hover {
-  opacity: 1;
-}
+// .coin-total:hover {
+//   opacity: 1;
+// }
 
 .coin-img {
   padding: 10px;
@@ -75,6 +75,11 @@
   margin-left: 1px;
 }
 
+.coin-number-contract {
+  width: 20px;
+  height: 20px;
+}
+
 .coin-button-receive {
   font-size: 14px;
   width: 145px;
@@ -127,22 +132,8 @@
   -ms-border-radius: 3px;
   -o-border-radius: 3px;
 
-  // color: #ffffff;
-  // margin: 0px;
-  // padding: 0;
-  // cursor: pointer;
-  // border: none;
-  // outline: none;
-  // background-color: transparent;
 }
 
-// .give-modal{}
-
-// .paper {
-//   @media screen and (max-width: 720px) {
-//     width: calc(100% - 20px);
-//   }
-// }
 
 .card-modal-button {
   background-color: #7e818d !important;
@@ -170,13 +161,8 @@
 
   .coin-total {
     padding: 10px 12px;
-    opacity: 1;
+    // opacity: 1;
   }
-
-  .coin-total:hover {
-    opacity: 1;
-  }
-
 
   .coin-img {
     display: flex;
@@ -203,6 +189,11 @@
     width: 6px;
     height: 11px;
     margin-left: 2px;
+  }
+
+  .coin-number-contract {
+    width: 15px;
+    height: 15px;
   }
 
   .coin-gift {
@@ -267,6 +258,11 @@
     width: 4px;
     height: 7px;
     margin: 0px 2px;
+  }
+
+  .coin-number-contract {
+    width: 12px;
+    height: 12px;
   }
 
 }
