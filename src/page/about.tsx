@@ -127,7 +127,7 @@ const About = () => {
         giftmoney: societyCoinGift,
         claim: claimSC,
         copyAddress: () => {
-          navigator.clipboard.writeText(SocietyKeyContract)
+          navigator.clipboard.writeText(SocietyCoinContract)
         },
       },
       {
@@ -139,7 +139,7 @@ const About = () => {
         giftmoney: societyKeyGift,
         claim: claimSK,
         copyAddress: () => {
-          navigator.clipboard.writeText(SocietyCoinContract)
+          navigator.clipboard.writeText(SocietyKeyContract)
         },
       },
     ],
@@ -176,17 +176,14 @@ const About = () => {
         <div className='claim-content'>
           <div className='connects-wallet'>
             <Button variant='contained' className='connects-button'>
-              {account ? (
-                shortenAddress(account)
-              ) : (
-                <div
-                  onClick={() => {
-                    setWallet(true)
-                  }}
-                >
-                  CONNECT WALLET
-                </div>
-              )}
+              <div
+                onClick={() => {
+                  setWallet(true)
+                }}
+              >
+                {account ? `${shortenAddress(account)}` : 'CONNECT WALLET'}
+              </div>
+
               <img
                 className='connects-button-refresh'
                 src='./img/refresh.PNG'
