@@ -55,14 +55,14 @@ function DrawerComponent() {
         </Toolbar>
         <Box className='drawer-middle'>
           <List>
-            <Divider />
+            {/* <Divider />
             <ListItem onClick={() => setOpenDrawer(false)}>
               <ListItemText>
                 <Link to='/' className={classes.link}>
                   HOME
                 </Link>
               </ListItemText>
-            </ListItem>
+            </ListItem> */}
             <Divider />
             <ListItem onClick={() => setOpenDrawer(false)}>
               <ListItemText>
