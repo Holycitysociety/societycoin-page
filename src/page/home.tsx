@@ -14,7 +14,7 @@ const Home = () => {
     // setMemory(Date.now())
     setTimeout(() => {
       navigate('/societykey')
-    }, 2.5 * 1000) //30 sec idle time
+    }, 4.5 * 1000) //30 sec idle time
   }, [])
 
   // useEffect(() => {
