@@ -208,7 +208,7 @@ const About = () => {
         buttonname: 'RECEIVE',
       },
       {
-        coming: 'SOCIETYGOOD WORKS FUNDING (COMING SOON)',
+        coming: 'SOCIETY GOOD WORKS FUNDING (COMING SOON)',
         imgurl: './img/sgood.png',
         opacity: 'opacity',
         cointitle: 'SOCIETYGOOD',
