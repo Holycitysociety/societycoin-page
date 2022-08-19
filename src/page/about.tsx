@@ -6,15 +6,18 @@ import { toast } from 'react-toastify'
 import Card from './card'
 import WalletConnectionModal from '../component/walletmodal'
 import {
-  useSocietyKeyBalance,
+  useSocietyNobleBalance,
   useSocietyCoinBalance,
-  useSocietyKeyGift,
+  useSocietyKeyBalance,
+  useSocietyNobleGift,
   useSocietyCoinGift,
-  useClaimSocietyKey,
+  useSocietyKeyGift,
+  useClaimSocietyNoble,
   useClaimSocietyCoin,
+  useClaimSocietyKey,
 } from '../hooks/useContract'
 import useEstimateGas from '../hooks/useEstimateGas'
-import { SocietyKeyContract, SocietyCoinContract } from '../global/constants'
+import { SocietyNobleContract, SocietyCoinContract, SocietyKeyContract } from '../global/constants'
 import { BIG_ZERO } from '../global/constants'
 
 import './about.scss'
@@ -48,22 +51,25 @@ const toastMsg = (state: TransactionStatus) => {
 const About = () => {
   const [wallet, setWallet] = useState(false)
   const { account } = useEthers()
-  const { claimSocietyKeyGas, claimSocietyCoinGas } = useEstimateGas()
-  const societyKeyBalance = useSocietyKeyBalance(account)
+  const { claimSocietyNobleGas, claimSocietyCoinGas, claimSocietyKeyGas } = useEstimateGas()
+  const societyNobleBalance = useSocietyNobleBalance(account)
   const societyCoinBalance = useSocietyCoinBalance(account)
-  const societyKeyGift = useSocietyKeyGift(account)
+  const societyKeyBalance = useSocietyKeyBalance(account)
+  const societyNobleGift = useSocietyNobleGift(account)
   const societyCoinGift = useSocietyCoinGift(account)
-  const { claimSocietyKeyState, claimSocietyKey } = useClaimSocietyKey()
+  const societyKeyGift = useSocietyKeyGift(account)
+  const { claimSocietyNobleState, claimSocietyNoble } = useClaimSocietyNoble()
   const { claimSocietyCoinState, claimSocietyCoin } = useClaimSocietyCoin()
+  const { claimSocietyKeyState, claimSocietyKey } = useClaimSocietyKey()
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down('md'))
 
-  const claimSK = useCallback(
+  const claimSN = useCallback(
     async (address: string | undefined = account) => {
       console.log(address)
       try {
-        const estimatedGas = await claimSocietyKeyGas(address)
-        claimSocietyKey(address, { gasLimit: estimatedGas })
+        const estimatedGas = await claimSocietyNobleGas(address)
+        claimSocietyNoble(address, { gasLimit: estimatedGas })
       } catch (error) {
         if (error.error)
           toast.error(
@@ -108,13 +114,42 @@ const About = () => {
     [account],
   )
 
+  const claimSK = useCallback(
+    async (address: string | undefined = account) => {
+      console.log(address)
+      try {
+        const estimatedGas = await claimSocietyKeyGas(address)
+        claimSocietyKey(address, { gasLimit: estimatedGas })
+      } catch (error) {
+        if (error.error)
+          toast.error(
+            error.error.data.message.split('execution reverted: ').join(''),
+            {
+              position: toast.POSITION.BOTTOM_RIGHT,
+              hideProgressBar: true,
+            },
+          )
+        else
+          toast.error(error.message, {
+            position: toast.POSITION.BOTTOM_RIGHT,
+            hideProgressBar: true,
+          })
+      }
+    },
+    [account],
+  )
+
   useEffect(() => {
-    toastMsg(claimSocietyKeyState)
-  }, [claimSocietyKeyState])
+    toastMsg(claimSocietyNobleState)
+  }, [claimSocietyNobleState])
 
   useEffect(() => {
     toastMsg(claimSocietyCoinState)
   }, [claimSocietyCoinState])
+
+  useEffect(() => {
+    toastMsg(claimSocietyKeyState)
+  }, [claimSocietyKeyState])
 
   const adata = useMemo(
     () => [
@@ -123,27 +158,42 @@ const About = () => {
         copycontract: './img/copycontract.png',
         cointitle: 'SOCIETYCOIN',
         coinmoney: societyCoinBalance,
-        gifttitle: 'SOCIETY GOOD WORKS GIFT',
+        gifttitle: 'SOCIETYKEY GOOD WORKS GIFT',
         giftmoney: societyCoinGift,
+        buttonname: 'RECEIVE',
         claim: claimSC,
         copyAddress: () => {
           navigator.clipboard.writeText(SocietyCoinContract)
         },
       },
       {
+        imgurl: './img/snoble.png',
+        copycontract: './img/copycontract.png',
+        cointitle: 'SOCIETYNOBLE',
+        coinmoney: societyNobleBalance,
+        gifttitle: 'SOCIETYKEY GOOD WORKS GIFT',
+        giftmoney: societyNobleGift,
+        buttonname: 'RECEIVE',
+        claim: claimSN,
+        copyAddress: () => {
+          navigator.clipboard.writeText(SocietyNobleContract)
+        },
+      },
+      {
         imgurl: './img/skey.png',
         copycontract: './img/copycontract.png',
         cointitle: 'SOCIETYKEY',
-        coinmoney: societyKeyBalance,
-        gifttitle: 'SOCIETY GOOD WORKS GIFT',
-        giftmoney: societyKeyGift,
+        coinmoney: BIG_ZERO,
+        gifttitle: 'THE KEY TO BUILDING A HIGH TRUST SOCIETY',
+        reward: 'reward',
+        buttonname: 'REDEEM',
         claim: claimSK,
         copyAddress: () => {
           navigator.clipboard.writeText(SocietyKeyContract)
         },
       },
     ],
-    [societyKeyBalance, societyCoinBalance, societyKeyGift, societyCoinGift],
+    [societyNobleBalance, societyCoinBalance, societyNobleGift, societyCoinGift],
   )
   const bdata = useMemo(
     () => [
@@ -155,6 +205,7 @@ const About = () => {
         coinmoney: BIG_ZERO,
         gifttitle: 'SOCIETY GOOD WORKS GIFT',
         giftmoney: BIG_ZERO,
+        buttonname: 'RECEIVE',
       },
       {
         coming: 'SOCIETYGOOD WORKS FUNDING (COMING SOON)',
@@ -164,6 +215,7 @@ const About = () => {
         coinmoney: BIG_ZERO,
         gifttitle: 'SOCIETY GOOD WORKS GIFT',
         giftmoney: BIG_ZERO,
+        buttonname: 'RECEIVE',
       },
     ],
     [],
@@ -199,28 +251,14 @@ const About = () => {
               <span className='balance-number-money'>
                 {(
                   (societyCoinBalance &&
-                    societyKeyBalance &&
-                    Number(societyCoinBalance.add(societyKeyBalance)) / 1e18) ||
+                    societyNobleBalance &&
+                    Number(societyCoinBalance.add(societyNobleBalance)) / 1e18) ||
                   0
                 ).toFixed(4)}
               </span>
               <img className='balance-number-img' src='./img/symbol.png' />
             </p>
           </div>
-          {/* <div className='gifts'>
-            <p className='gifts-title'>LIFETIME GIFTS RECEIVED</p>
-            <p className='gifts-number'>
-              <span className='gifts-number-money'>??? </span>
-              <img className='gifts-number-img' src='./img/symbol.png' />
-            </p>
-          </div>
-          <div className='gifts'>
-            <p className='gifts-title'>GIFTS TO SOCIETY</p>
-            <p className='gifts-number'>
-              <span className='gifts-number-money'>??? </span>
-              <img className='gifts-number-img' src='./img/symbol.png' />
-            </p>
-          </div> */}
         </div>
         <div className='claim-gifts'>
           <div>

@@ -10,193 +10,292 @@ import { BigNumber } from '@ethersproject/bignumber'
 import './card.scss'
 
 const Card = (props: {
-  cointitle: string
-  gifttitle: string
-  imgurl: string
-  opacity?: string
-  copycontract?: string
-  coinmoney: BigNumber
-  giftmoney: BigNumber
-  claim?: (address?: string | undefined) => void
-  copyAddress?: () => void
+    cointitle: string
+    gifttitle: string
+    imgurl: string
+    opacity?: string
+    copycontract?: string
+    coinmoney: BigNumber
+    giftmoney?: BigNumber
+    buttonname: string
+    reward?: string
+    claim?: (address?: string | undefined) => void
+    copyAddress?: () => void
 }) => {
-  const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: '#2a2d3c',
-    border: '1px solid #2a2d3c',
-    borderRadius: '10px',
-    boxShadow: 24,
-    p: 4,
-  }
+    const style = {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: 400,
+        bgcolor: '#2a2d3c',
+        border: '1px solid #2a2d3c',
+        borderRadius: '10px',
+        boxShadow: 24,
+        p: 4,
+    }
 
-  const {
-    cointitle,
-    gifttitle,
-    imgurl,
-    copycontract,
-    coinmoney,
-    giftmoney,
-    opacity,
-    claim,
-    copyAddress,
-  } = props
+    const styleb = {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: 400,
+        bgcolor: '#2a2d3c',
+        border: '1px solid #2a2d3c',
+        borderRadius: '10px',
+        boxShadow: 24,
+        pl: 4,
+        pr: 4,
+        pt: 10,
+        pb: 10,
+    }
 
-  const [open, setOpen] = useState(false)
-  const [claimAddress, setClaimAddress] = useState('')
-  const handleOpen = () => claim && setOpen(true)
-  const handleClose = () => setOpen(false)
+    const {
+        cointitle,
+        gifttitle,
+        imgurl,
+        copycontract,
+        coinmoney,
+        giftmoney,
+        opacity,
+        buttonname,
+        reward,
+        claim,
+        copyAddress,
+    } = props
 
-  return (
-    <div>
-      <div className={`coin-total ${opacity}`}>
-        <div className='coin-img'>
-          <img src={imgurl} alt='imgs' className='coin-img-coin' />
-        </div>
-        <div className='coin-content'>
-          <div className='coin-number'>
-            <p>
-              {cointitle}{' '}
-              {copycontract && (
-                <img
-                  className='coin-number-contract'
-                  src={copycontract}
-                  onClick={() => {
-                    alert(`copied ${cointitle} address`)
-                    if (copyAddress) copyAddress()
-                  }}
-                />
-              )}
-            </p>
-            <p style={{ display: 'flex', alignItems: 'center' }}>
-              <span>{(Number(coinmoney) / 1e18 || 0).toFixed(4)}</span>{' '}
-              <img className='coin-number-symbol' src='./img/symbol.png' />{' '}
-            </p>
-          </div>
-          <div className='coin-gift'>
-            <span>{gifttitle}</span>
-            <p style={{ display: 'flex', alignItems: 'center' }}>
-              <span>{(Number(giftmoney) / 1e18 || 0).toFixed(4)}</span>{' '}
-              <img className='coin-number-symbol' src='./img/symbol.png' />{' '}
-            </p>
-          </div>
-          <div className='coin-button-group'>
-            <img className='coin-button-group-img' src='./img/left.png' />
-            <button
-              className='coin-button-receive'
-              onClick={(e) => {
-                e.stopPropagation()
-                if (claim) claim()
-              }}
-            >
-              RECEIVE{' '}
-              <img
-                className='coin-button-group-symbol'
-                src='./img/symbol.png'
-              />
-              GIFT
-            </button>
-            <p className='coin-button-or'>OR</p>
-            <button onClick={handleOpen} className='coin-button-gift'>
-              GIVE
-              <img
-                className='coin-button-group-symbol'
-                src='./img/symbol.png'
-              />
-              GIFT
-            </button>
-            <img className='coin-button-group-img' src='./img/right.png' />
-          </div>
-        </div>
-      </div>
-      <Modal
-        aria-labelledby='transition-modal-title'
-        aria-describedby='transition-modal-description'
-        open={open}
-        onClose={handleClose}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
-      >
-        <Fade in={open}>
-          <Box sx={style} className='give-modal'>
-            {/* <Typography id="transition-modal-title" variant="h6" component="h2">
-                        Claim
-                    </Typography> */}
-            <p
-              style={{
-                fontSize: '20px',
-                color: '#d0d1d5',
-                letterSpacing: '0.2em',
-                fontWeight: 'bold',
-                display: 'flex',
-                alignItems: 'center',
-              }}
-            >
-              GIVE
-              <img
-                style={{ width: '11px', height: '20px', margin: '0px 6px' }}
-                src='./img/symbol.png'
-              />
-              GIFT
-            </p>
-            <Box
-              sx={{
-                width: 500,
-                maxWidth: '100%',
-              }}
-            >
-              {/* <input
-                value={claimAddress}
-                onChange={(e) => setClaimAddress(e.target.value)}
-                placeholder='RECIPIENT ADDRESS'
-                id='claim'
-                type='text'
-              ></input> */}
-              <TextField
-                fullWidth
-                label='RECIPIENT ADDRESS'
-                id='claim'
-                sx={{ mb: 5, mt: 2 }}
-                style={{ backgroundColor: '#eee', borderRadius: '5px' }}
-                value={claimAddress}
-                onChange={(e) => setClaimAddress(e.target.value)}
-              />
-            </Box>
-            {/* <Typography id="transition-modal-description" sx={{ mt: 3 }}>
-                        Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                    </Typography> */}
-            <Box>
-              <Button
-                className='card-modal-button'
-                sx={{ mr: 3 }}
-                variant='contained'
-                onClick={(e) => {
-                  e.stopPropagation()
-                  console.log(claimAddress)
-                  console.log(claim)
-                  if (claim) claim(claimAddress)
+    const [opena, setOpena] = useState(false)
+    const [claimAddress, setClaimAddress] = useState('')
+    const [claimAmount, setClaimAmount] = useState('')
+    const handleOpena = () => claim && setOpena(true)
+    const handleClosea = () => setOpena(false)
+
+    const [openb, setOpenb] = useState(false)
+    const handleOpenb = () => claim && setOpenb(true)
+    const handleCloseb = () => setOpenb(false)
+
+    return (
+        <div>
+            <div className={`coin-total ${opacity}`}>
+                <div className='coin-img'>
+                    <img src={imgurl} alt='imgs' className='coin-img-coin' />
+                </div>
+                <div className='coin-content'>
+                    <div className='coin-number'>
+                        <p>
+                            {cointitle}{' '}
+                            {copycontract && (
+                                <img
+                                    className='coin-number-contract'
+                                    src={copycontract}
+                                    onClick={() => {
+                                        alert(`copied ${cointitle} address`)
+                                        if (copyAddress) copyAddress()
+                                    }}
+                                />
+                            )}
+                        </p>
+                        <p style={{ display: 'flex', alignItems: 'center' }}>
+                            <span>
+                                {(Number(coinmoney) / 1e18 || 0).toFixed(4)}
+                            </span>{' '}
+                            <img
+                                className='coin-number-symbol'
+                                src='./img/symbol.png'
+                            />{' '}
+                        </p>
+                    </div>
+                    <div className='coin-gift'>
+                        <span>{gifttitle}</span>
+                        <p style={{ display: 'flex', alignItems: 'center' }}>
+                            {giftmoney && (
+                                <>
+                                    <span>
+                                        {(
+                                            Number(giftmoney) / 1e18 || 0
+                                        ).toFixed(4)}
+                                    </span>{' '}
+                                    <img
+                                        className='coin-number-symbol'
+                                        src='./img/symbol.png'
+                                    />{' '}
+                                </>
+                            )}
+                        </p>
+                    </div>
+                    <div className='coin-button-group'>
+                        <img
+                            className='coin-button-group-img'
+                            src='./img/left.png'
+                        />
+                        <button
+                            className='coin-button-receive'
+                            onClick={(e) => {
+                                e.stopPropagation()
+                                if (claim) {
+                                    if (reward) setOpenb(true)
+                                    else claim()
+                                }
+                            }}
+                        >
+                            {buttonname}{' '}
+                            <img
+                                className='coin-button-group-symbol'
+                                src='./img/symbol.png'
+                            />
+                            GIFT
+                        </button>
+                        <p className='coin-button-or'>OR</p>
+                        <button
+                            onClick={handleOpena}
+                            className='coin-button-gift'
+                        >
+                            GIVE
+                            <img
+                                className='coin-button-group-symbol'
+                                src='./img/symbol.png'
+                            />
+                            GIFT
+                        </button>
+                        <img
+                            className='coin-button-group-img'
+                            src='./img/right.png'
+                        />
+                    </div>
+                </div>
+            </div>
+            <Modal
+                aria-labelledby='transition-modal-title'
+                aria-describedby='transition-modal-description'
+                open={opena}
+                onClose={handleClosea}
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                    timeout: 500,
                 }}
-              >
-                Confirm
-              </Button>
-              <Button
-                variant='contained'
-                className='card-modal-button-a'
-                onClick={handleClose}
-              >
-                Cancel
-              </Button>
-            </Box>
-          </Box>
-        </Fade>
-      </Modal>
-    </div>
-  )
+            >
+                <Fade in={opena}>
+                    <Box sx={style} className='give-modal'>
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                justifyContent: 'space-between',
+                            }}
+                        >
+                            <p
+                                style={{
+                                    fontSize: '20px',
+                                    color: '#d0d1d5',
+                                    letterSpacing: '0.2em',
+                                    fontWeight: 'bold',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                }}
+                            >
+                                GIVE
+                                <img
+                                    style={{
+                                        width: '11px',
+                                        height: '20px',
+                                        margin: '0px 6px',
+                                    }}
+                                    src='./img/symbol.png'
+                                />
+                                GIFT
+                            </p>
+                            <TextField
+                                className='give-modal-amount'
+                                fullWidth
+                                label='ADD AMOUNT FIELD'
+                                id='amount'
+                                sx={{ ml: 5 }}
+                                style={{
+                                    backgroundColor: '#eee',
+                                    borderRadius: '3px',
+                                }}
+                                value={claimAmount}
+                                onChange={(e) => setClaimAmount(e.target.value)}
+                            />
+                        </Box>
+
+                        <Box
+                            sx={{
+                                width: 500,
+                                maxWidth: '100%',
+                            }}
+                        >
+                            <TextField
+                                fullWidth
+                                label='RECIPIENT ADDRESS'
+                                id='claim'
+                                sx={{ mb: 5, mt: 2 }}
+                                style={{
+                                    backgroundColor: '#eee',
+                                    borderRadius: '5px',
+                                }}
+                                value={claimAddress}
+                                onChange={(e) =>
+                                    setClaimAddress(e.target.value)
+                                }
+                            />
+                        </Box>
+                        <Box>
+                            <Button
+                                className='card-modal-button'
+                                sx={{ mr: 3 }}
+                                variant='contained'
+                                onClick={(e) => {
+                                    e.stopPropagation()
+                                    console.log(claimAddress)
+                                    console.log(claim)
+                                    if (claim) claim(claimAddress)
+                                }}
+                            >
+                                Confirm
+                            </Button>
+                            <Button
+                                variant='contained'
+                                className='card-modal-button-a'
+                                onClick={handleClosea}
+                            >
+                                Cancel
+                            </Button>
+                        </Box>
+                    </Box>
+                </Fade>
+            </Modal>
+            <Modal
+                aria-labelledby='transition-modal-title'
+                aria-describedby='transition-modal-description'
+                open={openb}
+                onClose={handleCloseb}
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                    timeout: 500,
+                }}
+            >
+                <Fade in={openb}>
+                    <Box sx={styleb} className='give-modal'>
+                        <p
+                            style={{
+                                fontSize: '20px',
+                                color: '#d0d1d5',
+                                letterSpacing: '0.2em',
+                                // fontWeight: 'bold',
+                                display: 'flex',
+                                alignItems: 'center',
+                            }}
+                        >
+                            REDEEM YOUR SOCIETYKEYS AT ONE OF OUR SOCIETYMAKER
+                            LOCATIONS-(local list link)
+                        </p>
+                    </Box>
+                </Fade>
+            </Modal>
+        </div>
+    )
 }
 export default memo(Card)
