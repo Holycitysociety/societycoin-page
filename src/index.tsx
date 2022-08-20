@@ -18,6 +18,7 @@ const config = {
   pollingInterval: 1000,
 };
 
+
 const container = document.getElementById('root');
 const root = createRoot(container!); // createRoot(container!) if you use TypeScript
 root.render(<DAppProvider config={config} children={<App />} />);

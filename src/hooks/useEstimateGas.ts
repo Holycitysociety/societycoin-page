@@ -1,49 +1,75 @@
-import { Interface } from '@ethersproject/abi';
-import { Contract } from '@ethersproject/contracts';
-import { useEthers } from '@usedapp/core';
-import SocietyNoble from '../global/SocietyNoble.json';
-import SocietyCoin from '../global/SocietyCoin.json';
-import SocietyKey from '../global/SocietyKey.json';
-import { SocietyNobleContract, SocietyCoinContract, SocietyKeyContract } from '../global/constants';
+import { Interface } from '@ethersproject/abi'
+import { Contract } from '@ethersproject/contracts'
+import { useEthers } from '@usedapp/core'
+import SocietyNoble from '../global/SocietyNoble.json'
+import SocietyCoin from '../global/SocietyCoin.json'
+import SocietyKey from '../global/SocietyKey.json'
+import {
+    SocietyNobleContract,
+    SocietyCoinContract,
+    SocietyKeyContract,
+} from '../global/constants'
 
 export default function useEstimateGas() {
-  const SocietyNobleABI = new Interface(SocietyNoble);
-  const SocietyCoinABI = new Interface(SocietyCoin);
-  const SocietyKeyABI = new Interface(SocietyKey);
-  const { library } = useEthers();
+    const SocietyNobleABI = new Interface(SocietyNoble)
+    const SocietyCoinABI = new Interface(SocietyCoin)
+    const SocietyKeyABI = new Interface(SocietyKey)
+    const { library } = useEthers()
 
-  const claimSocietyNobleGas = async (address: string | undefined) => {
-    const contract = new Contract(
-      SocietyNobleContract,
-      SocietyNobleABI,
-      library?.getSigner()
-    );
-    const estimatedGas = await contract.estimateGas.claim(address);
+    const claimSocietyNobleGas = async (address: string | undefined) => {
+        const contract = new Contract(
+            SocietyNobleContract,
+            SocietyNobleABI,
+            library?.getSigner(),
+        )
+        const estimatedGas = await contract.estimateGas.claim(address)
 
-    return estimatedGas;
-  };
+        return estimatedGas
+    }
 
-  const claimSocietyCoinGas = async (address: string | undefined) => {
-    const contract = new Contract(
-      SocietyCoinContract,
-      SocietyCoinABI,
-      library?.getSigner()
-    );
-    const estimatedGas = await contract.estimateGas.claim(address);
+    const claimSocietyCoinGas = async (address: string | undefined) => {
+        const contract = new Contract(
+            SocietyCoinContract,
+            SocietyCoinABI,
+            library?.getSigner(),
+        )
+        const estimatedGas = await contract.estimateGas.claim(address)
 
-    return estimatedGas;
-  };
+        return estimatedGas
+    }
 
-  const claimSocietyKeyGas = async (address: string | undefined) => {
-    const contract = new Contract(
-      SocietyKeyContract,
-      SocietyKeyABI,
-      library?.getSigner()
-    );
-    const estimatedGas = await contract.estimateGas.claim(address);
+    const claimSocietyKeyGas = async (address: string | undefined) => {
+        const contract = new Contract(
+            SocietyKeyContract,
+            SocietyKeyABI,
+            library?.getSigner(),
+        )
+        const estimatedGas = await contract.estimateGas.claim(address)
 
-    return estimatedGas;
-  };
+        return estimatedGas
+    }
 
-  return { claimSocietyNobleGas, claimSocietyCoinGas, claimSocietyKeyGas };
+    const sendSocietyKeyGas = async (
+        address: string | undefined,
+        amount: number | undefined,
+    ) => {
+        const contract = new Contract(
+            SocietyKeyContract,
+            SocietyKeyABI,
+            library?.getSigner(),
+        )
+        const estimatedGas = await contract.estimateGas.transfer(
+            address,
+            amount,
+        )
+
+        return estimatedGas
+    }
+
+    return {
+        claimSocietyNobleGas,
+        claimSocietyCoinGas,
+        claimSocietyKeyGas,
+        sendSocietyKeyGas,
+    }
 }

@@ -19,7 +19,12 @@ const Card = (props: {
     giftmoney?: BigNumber
     buttonname: string
     reward?: string
+    background?: string
     claim?: (address?: string | undefined) => void
+    sendGift?: (
+        address?: string | undefined,
+        amount?: number | undefined,
+    ) => void
     copyAddress?: () => void
 }) => {
     const style = {
@@ -61,7 +66,9 @@ const Card = (props: {
         opacity,
         buttonname,
         reward,
+        background,
         claim,
+        sendGift,
         copyAddress,
     } = props
 
@@ -74,6 +81,10 @@ const Card = (props: {
     const [openb, setOpenb] = useState(false)
     const handleOpenb = () => claim && setOpenb(true)
     const handleCloseb = () => setOpenb(false)
+
+    const [openc, setOpenc] = useState(false)
+    const handleOpenc = () => claim && setOpenc(true)
+    const handleClosec = () => setOpenc(false)
 
     return (
         <div>
@@ -148,7 +159,11 @@ const Card = (props: {
                         </button>
                         <p className='coin-button-or'>OR</p>
                         <button
-                            onClick={handleOpena}
+                            onClick={(e) => {
+                                e.stopPropagation()
+                                if (sendGift) setOpenc(true)
+                                else setOpena(true)
+                            }}
                             className='coin-button-gift'
                         >
                             GIVE
@@ -177,6 +192,120 @@ const Card = (props: {
                 }}
             >
                 <Fade in={opena}>
+                    <Box sx={style} className='give-modal'>
+                        <p
+                            style={{
+                                fontSize: '20px',
+                                color: '#d0d1d5',
+                                letterSpacing: '0.2em',
+                                fontWeight: 'bold',
+                                display: 'flex',
+                                alignItems: 'center',
+                            }}
+                        >
+                            GIVE
+                            <img
+                                style={{
+                                    width: '11px',
+                                    height: '20px',
+                                    margin: '0px 6px',
+                                }}
+                                src='./img/symbol.png'
+                            />
+                            GIFT
+                        </p>
+
+                        <Box
+                            sx={{
+                                width: 500,
+                                maxWidth: '100%',
+                            }}
+                        >
+                            <TextField
+                                fullWidth
+                                label='RECIPIENT ADDRESS'
+                                id='claim'
+                                sx={{ mb: 5, mt: 2 }}
+                                style={{
+                                    backgroundColor: '#eee',
+                                    borderRadius: '5px',
+                                }}
+                                value={claimAddress}
+                                onChange={(e) =>
+                                    setClaimAddress(e.target.value)
+                                }
+                            />
+                        </Box>
+                        <Box>
+                            <Button
+                                className='card-modal-button'
+                                sx={{ mr: 3 }}
+                                variant='contained'
+                                onClick={(e) => {
+                                    e.stopPropagation()
+                                    console.log(claimAddress)
+                                    console.log(claim)
+                                    if (claim) claim(claimAddress)
+                                }}
+                            >
+                                Confirm
+                            </Button>
+                            <Button
+                                variant='contained'
+                                className='card-modal-button-a'
+                                onClick={handleClosea}
+                            >
+                                Cancel
+                            </Button>
+                        </Box>
+                    </Box>
+                </Fade>
+            </Modal>
+            <Modal
+                aria-labelledby='transition-modal-title'
+                aria-describedby='transition-modal-description'
+                open={openb}
+                onClose={handleCloseb}
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                    timeout: 500,
+                }}
+            >
+                <Fade in={openb}>
+                    <Box sx={styleb} className='give-modal'>
+                        <span
+                            style={{
+                                fontSize: '20px',
+                                color: '#d0d1d5',
+                                letterSpacing: '0.2em',
+                            }}
+                        >
+                            REDEEM YOUR SOCIETYKEYS AT ONE OF OUR SOCIETYMAKER
+                            LOCATIONS-({' '}
+                            <a
+                                href='http://localist.societykey.io/'
+                                style={{ color: '#eee', textDecoration: 'none' }}
+                            >
+                                LOCALIST LINK
+                            </a>
+                            )
+                        </span>
+                    </Box>
+                </Fade>
+            </Modal>
+            <Modal
+                aria-labelledby='transition-modal-title'
+                aria-describedby='transition-modal-description'
+                open={openc}
+                onClose={handleClosec}
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                    timeout: 500,
+                }}
+            >
+                <Fade in={openc}>
                     <Box sx={style} className='give-modal'>
                         <Box
                             sx={{
@@ -249,8 +378,11 @@ const Card = (props: {
                                 onClick={(e) => {
                                     e.stopPropagation()
                                     console.log(claimAddress)
-                                    console.log(claim)
-                                    if (claim) claim(claimAddress)
+                                    if (sendGift)
+                                        sendGift(
+                                            claimAddress,
+                                            parseInt(claimAmount),
+                                        )
                                 }}
                             >
                                 Confirm
@@ -258,40 +390,11 @@ const Card = (props: {
                             <Button
                                 variant='contained'
                                 className='card-modal-button-a'
-                                onClick={handleClosea}
+                                onClick={handleClosec}
                             >
                                 Cancel
                             </Button>
                         </Box>
-                    </Box>
-                </Fade>
-            </Modal>
-            <Modal
-                aria-labelledby='transition-modal-title'
-                aria-describedby='transition-modal-description'
-                open={openb}
-                onClose={handleCloseb}
-                closeAfterTransition
-                BackdropComponent={Backdrop}
-                BackdropProps={{
-                    timeout: 500,
-                }}
-            >
-                <Fade in={openb}>
-                    <Box sx={styleb} className='give-modal'>
-                        <p
-                            style={{
-                                fontSize: '20px',
-                                color: '#d0d1d5',
-                                letterSpacing: '0.2em',
-                                // fontWeight: 'bold',
-                                display: 'flex',
-                                alignItems: 'center',
-                            }}
-                        >
-                            REDEEM YOUR SOCIETYKEYS AT ONE OF OUR SOCIETYMAKER
-                            LOCATIONS-(local list link)
-                        </p>
                     </Box>
                 </Fade>
             </Modal>

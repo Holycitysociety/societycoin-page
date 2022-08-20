@@ -1,7 +1,7 @@
-import { BigNumber } from "@ethersproject/bignumber";
+import { BigNumber } from '@ethersproject/bignumber'
 
-export const BIG_ZERO = BigNumber.from("0");
+export const BIG_ZERO = BigNumber.from('0')
 
-export const SocietyNobleContract = '0x2beac1F4A0E0C516F484FA675E4755ce180eF78f';
-export const SocietyCoinContract = '0x8029fBe833886c1F247280255730bca659f8Ee39';
-export const SocietyKeyContract = '0xA864335F7Da39B5Ef0d1cf65C2b8956A75E539d6';
+export const SocietyNobleContract = '0x1D9C9a362A6AB61d8da1759766423fEbA5787138'
+export const SocietyCoinContract = '0x37c7306056378c5BE7d7A54F825b1833A56B122e'
+export const SocietyKeyContract = '0xC7A438e548B6128634D26F47c397Fd0150fC3aD6'
