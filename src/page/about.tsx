@@ -157,7 +157,10 @@ const About = () => {
     )
 
     const sendSK = useCallback(
-        async (address: string | undefined = account, amount: number | undefined) => {
+        async (
+            address: string | undefined = account,
+            amount: number | undefined,
+        ) => {
             console.log(address)
             try {
                 const estimatedGas = await sendSocietyKeyGas(address, amount)
@@ -254,7 +257,7 @@ const About = () => {
         () => [
             {
                 coming: 'SOCIETY SUPPLYCHAIN (COMING SOON)',
-                imgurl: './img/s20.png',
+                imgurl: './img/scoming.png',
                 opacity: 'opacity',
                 cointitle: 'SOCIETYH20',
                 coinmoney: BIG_ZERO,
@@ -264,7 +267,7 @@ const About = () => {
             },
             {
                 coming: 'SOCIETY GOOD WORKS FUNDING (COMING SOON)',
-                imgurl: './img/sgood.png',
+                imgurl: './img/scoming.png',
                 opacity: 'opacity',
                 cointitle: 'SOCIETYGOOD',
                 coinmoney: BIG_ZERO,
