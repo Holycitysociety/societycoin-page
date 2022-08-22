@@ -284,7 +284,7 @@ const Card = (props: {
                             REDEEM YOUR SOCIETYKEYS AT ONE OF OUR SOCIETYMAKER
                             LOCATIONS-({' '}
                             <a
-                                href='http://localist.societykey.io/'
+                                href='http://localist.societykey.app/'
                                 style={{ color: '#eee', textDecoration: 'none' }}
                             >
                                 LOCALIST LINK
