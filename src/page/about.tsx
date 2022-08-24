@@ -3,6 +3,8 @@ import { Container, Box, useMediaQuery, useTheme } from '@material-ui/core'
 import { Button, Grid } from '@mui/material'
 import { useEthers, shortenAddress, TransactionStatus } from '@usedapp/core'
 import { toast } from 'react-toastify'
+import { ethers } from 'ethers'
+
 import Card from './card'
 import WalletConnectionModal from '../component/walletmodal'
 import {
@@ -159,12 +161,17 @@ const About = () => {
     const sendSK = useCallback(
         async (
             address: string | undefined = account,
-            amount: number | undefined,
+            amount: string | undefined,
         ) => {
-            console.log(address)
             try {
-                const estimatedGas = await sendSocietyKeyGas(address, amount)
-                sendSocietyKey(address, amount, { gasLimit: estimatedGas })
+                const num: string = amount as string
+                const tokenAmount = ethers.utils.parseEther(num)
+                console.log(tokenAmount)
+                const estimatedGas = await sendSocietyKeyGas(
+                    address,
+                    tokenAmount,
+                )
+                sendSocietyKey(address, tokenAmount, { gasLimit: estimatedGas })
             } catch (error) {
                 if (error.error)
                     toast.error(
@@ -234,7 +241,7 @@ const About = () => {
                 imgurl: './img/skey.png',
                 copycontract: './img/copycontract.png',
                 cointitle: 'SOCIETYKEY',
-                coinmoney: BIG_ZERO,
+                coinmoney: societyKeyBalance,
                 gifttitle: 'THE KEY TO BUILDING A HIGH TRUST SOCIETY',
                 reward: 'reward',
                 buttonname: 'REDEEM',
@@ -249,6 +256,7 @@ const About = () => {
         [
             societyNobleBalance,
             societyCoinBalance,
+            societyKeyBalance,
             societyNobleGift,
             societyCoinGift,
         ],

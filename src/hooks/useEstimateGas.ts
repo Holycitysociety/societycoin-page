@@ -1,6 +1,8 @@
 import { Interface } from '@ethersproject/abi'
 import { Contract } from '@ethersproject/contracts'
 import { useEthers } from '@usedapp/core'
+import { BigNumber } from '@ethersproject/bignumber'
+
 import SocietyNoble from '../global/SocietyNoble.json'
 import SocietyCoin from '../global/SocietyCoin.json'
 import SocietyKey from '../global/SocietyKey.json'
@@ -49,10 +51,7 @@ export default function useEstimateGas() {
         return estimatedGas
     }
 
-    const sendSocietyKeyGas = async (
-        address: string | undefined,
-        amount: number | undefined,
-    ) => {
+    const sendSocietyKeyGas = async (address: string | undefined, amount: BigNumber | undefined) => {
         const contract = new Contract(
             SocietyKeyContract,
             SocietyKeyABI,

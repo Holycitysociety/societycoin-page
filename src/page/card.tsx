@@ -21,10 +21,7 @@ const Card = (props: {
     reward?: string
     background?: string
     claim?: (address?: string | undefined) => void
-    sendGift?: (
-        address?: string | undefined,
-        amount?: number | undefined,
-    ) => void
+    sendGift?: (address: string | undefined, amount: string | undefined) => void
     copyAddress?: () => void
 }) => {
     const style = {
@@ -285,7 +282,10 @@ const Card = (props: {
                             LOCATIONS-({' '}
                             <a
                                 href='http://localist.societykey.app/'
-                                style={{ color: '#eee', textDecoration: 'none' }}
+                                style={{
+                                    color: '#eee',
+                                    textDecoration: 'none',
+                                }}
                             >
                                 LOCALIST LINK
                             </a>
@@ -377,12 +377,8 @@ const Card = (props: {
                                 variant='contained'
                                 onClick={(e) => {
                                     e.stopPropagation()
-                                    console.log(claimAddress)
                                     if (sendGift)
-                                        sendGift(
-                                            claimAddress,
-                                            parseInt(claimAmount),
-                                        )
+                                        sendGift(claimAddress, claimAmount)
                                 }}
                             >
                                 Confirm
