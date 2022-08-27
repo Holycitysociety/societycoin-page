@@ -266,7 +266,7 @@ const About = () => {
     const bdata = useMemo(
         () => [
             {
-                coming: 'SOCIETY SUPPLYCHAIN (COMING SOON)',
+                coming: 'SOCIETY SUPPLYCHAIN - UNDER DEVELOPMENT',
                 imgurl: './img/scoming.png',
                 opacity: 'opacity',
                 cointitle: 'SOCIETYH20',
@@ -276,7 +276,7 @@ const About = () => {
                 buttonname: 'RECEIVE',
             },
             {
-                coming: 'SOCIETY GOOD WORKS FUNDING (COMING SOON)',
+                coming: 'SOCIETY GOOD WORKS FUNDING - UNDER DEVELOPMENT',
                 imgurl: './img/scoming.png',
                 opacity: 'opacity',
                 cointitle: 'SOCIETYGOOD',

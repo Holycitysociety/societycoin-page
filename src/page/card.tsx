@@ -99,6 +99,7 @@ const Card = (props: {
                                     src={copycontract}
                                     onClick={() => {
                                         alert(`copied ${cointitle} address`)
+                                        console.log(copyAddress)
                                         if (copyAddress) copyAddress()
                                     }}
                                 />
@@ -279,7 +280,7 @@ const Card = (props: {
                             }}
                         >
                             REDEEM YOUR SOCIETYKEYS AT ONE OF OUR SOCIETYMAKER
-                            LOCATIONS-({' '}
+                            LOCATIONS-{' '}
                             <a
                                 href='http://localist.societykey.app/'
                                 style={{
@@ -287,9 +288,8 @@ const Card = (props: {
                                     textDecoration: 'none',
                                 }}
                             >
-                                LOCALIST LINK
+                                SOCIETY LOCALIST
                             </a>
-                            )
                         </span>
                     </Box>
                 </Fade>
