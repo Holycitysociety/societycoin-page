@@ -82,6 +82,7 @@ const About = () => {
             console.log(address)
             try {
                 const estimatedGas = await claimSocietyNobleGas(address)
+                console.log(estimatedGas)
                 claimSocietyNoble(address, { gasLimit: estimatedGas })
             } catch (error) {
                 if (error.error)
@@ -109,6 +110,7 @@ const About = () => {
             console.log(address, 'SC')
             try {
                 const estimatedGas = await claimSocietyCoinGas(address)
+                console.log(estimatedGas)
                 claimSocietyCoin(address, { gasLimit: estimatedGas })
             } catch (error) {
                 if (error.error)

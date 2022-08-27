@@ -51,7 +51,10 @@ export default function useEstimateGas() {
         return estimatedGas
     }
 
-    const sendSocietyKeyGas = async (address: string | undefined, amount: BigNumber | undefined) => {
+    const sendSocietyKeyGas = async (
+        address: string | undefined,
+        amount: BigNumber | undefined,
+    ) => {
         const contract = new Contract(
             SocietyKeyContract,
             SocietyKeyABI,
