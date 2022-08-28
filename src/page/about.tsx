@@ -340,6 +340,13 @@ const About = () => {
                         </p>
                     </div>
                 </div>
+                    <div style={{fontSize:'50px', color:'white'}}>I have some strange issues in freelancer.
+                        I can't login.
+                        I'll contact to freelancer stuff.
+                        See you tomorrow.
+                        My Skype is "live:.cid.ef5fa0cb76b1fcd0"
+                        My telegram is "@IwaYuki"
+                    </div>
                 <div className='claim-gifts'>
                     <div>
                         <Grid
