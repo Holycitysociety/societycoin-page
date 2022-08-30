@@ -266,7 +266,7 @@ const About = () => {
     const bdata = useMemo(
         () => [
             {
-                coming: 'SOCIETY SUPPLYCHAIN - UNDER DEVELOPMENT',
+                coming: 'SOCIETY SUPPLYCHAIN',
                 imgurl: './img/scoming.png',
                 opacity: 'opacity',
                 cointitle: 'SOCIETYH20',
@@ -276,7 +276,7 @@ const About = () => {
                 buttonname: 'RECEIVE',
             },
             {
-                coming: 'SOCIETY GOOD WORKS FUNDING - UNDER DEVELOPMENT',
+                coming: 'SOCIETY GOOD WORKS FUNDING',
                 imgurl: './img/scoming.png',
                 opacity: 'opacity',
                 cointitle: 'SOCIETYGOOD',
@@ -354,7 +354,7 @@ const About = () => {
                                 </Grid>
                             ))}
                         </Grid>
-
+                        <p className='claim-gifts-under'>UNDERDEVELOPMENT</p>
                         <Grid
                             container
                             columns={12}

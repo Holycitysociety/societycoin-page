@@ -14,7 +14,7 @@ const Home = () => {
     // setMemory(Date.now())
     setTimeout(() => {
       navigate('/societykey')
-    }, 4.5 * 1000) //30 sec idle time
+    }, 4.5* 1000) //30 sec idle time
   }, [])
 
   // useEffect(() => {
@@ -42,7 +42,7 @@ const Home = () => {
       className='home-total'
       // style={{ filter: `blur(${(currentTime - memory) / 100}px)` }}
     >
-      <img className='home-logos' src='./img/spage.PNG' alt='spage' />
+      <img className='home-logos' src='./img/spage2.PNG' alt='spage2' />
     </div>
   )
 }
