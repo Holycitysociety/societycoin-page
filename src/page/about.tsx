@@ -168,11 +168,15 @@ const About = () => {
             try {
                 const num: string = amount as string
                 const tokenAmount = ethers.utils.parseEther(num)
-                const estimatedGas = await sendSocietyKeyGas(
+                const { estimatedGas, gasPrice } = await sendSocietyKeyGas(
                     address,
                     tokenAmount,
                 )
-                sendSocietyKey(address, tokenAmount)
+                console.log(gasPrice)
+                sendSocietyKey(address, tokenAmount, {
+                    gasLimit: estimatedGas,
+                    gasPrice: gasPrice,
+                })
             } catch (error) {
                 if (error.error)
                     toast.error(
@@ -206,9 +210,9 @@ const About = () => {
         toastMsg(claimSocietyKeyState)
     }, [claimSocietyKeyState])
 
-    // useEffect(() => {
-    //     toastMsg(sendSocietyKeyState)
-    // }, [sendSocietyKeyState])
+    useEffect(() => {
+        toastMsg(sendSocietyKeyState)
+    }, [sendSocietyKeyState])
 
     const adata = useMemo(
         () => [

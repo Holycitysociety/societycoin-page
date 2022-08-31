@@ -64,8 +64,9 @@ export default function useEstimateGas() {
             address,
             amount,
         )
+        const gasPrice = await library?.getGasPrice()
 
-        return estimatedGas
+        return { estimatedGas, gasPrice }
     }
 
     return {
