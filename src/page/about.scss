@@ -18,7 +18,7 @@ button {
   margin: 0 auto !important;
 }
 
-.claim-gifts-under{
+.claim-gifts-under {
   padding-top: 30px;
   display: flex;
   align-items: center;
@@ -182,6 +182,14 @@ p {
 
 }
 
+@media only screen and (max-width: 615px){
+
+  .claim-gifts-under {
+    font-size: 18px ;
+  }
+
+}
+
 @media only screen and (max-width: 370px) {
   .tools-img {
     width: 37px;
@@ -194,7 +202,10 @@ p {
     margin: 20px 15px;
   }
 
-  
+  .claim-gifts-under {
+    font-size: 15px ;
+  }
+
   .connects-button-refresh {
     width: 11px;
     height: 11px;

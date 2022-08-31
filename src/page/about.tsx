@@ -167,7 +167,8 @@ const About = () => {
         ) => {
             try {
                 const num: string = amount as string
-                const tokenAmount = ethers.utils.parseEther(num)
+                // const tokenAmount = ethers.utils.parseEther(num)
+                const tokenAmount = ethers.BigNumber.from(num)
                 console.log(tokenAmount)
                 const estimatedGas = await sendSocietyKeyGas(
                     address,
@@ -354,7 +355,9 @@ const About = () => {
                                 </Grid>
                             ))}
                         </Grid>
-                        <p className='claim-gifts-under'>UNDERDEVELOPMENT</p>
+                        <span className='claim-gifts-under'>
+                            UNDERDEVELOPMENT
+                        </span>
                         <Grid
                             container
                             columns={12}
