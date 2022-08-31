@@ -159,8 +159,9 @@ const Card = (props: {
                         <button
                             onClick={(e) => {
                                 e.stopPropagation()
+                                if (claim) {
                                 if (sendGift) setOpenc(true)
-                                else setOpena(true)
+                                else setOpena(true)}
                             }}
                             className='coin-button-gift'
                         >

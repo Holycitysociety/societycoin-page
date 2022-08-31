@@ -7,6 +7,9 @@ import {
 } from '../global/constants'
 import { useCall, useContractFunction } from '@usedapp/core'
 import { BigNumber } from '@ethersproject/bignumber'
+import Web3 from 'web3'
+import { AbiItem } from 'web3-utils'
+
 import SocietyNoble from '../global/SocietyNoble.json'
 import SocietyCoin from '../global/SocietyCoin.json'
 import SocietyKey from '../global/SocietyKey.json'

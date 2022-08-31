@@ -167,14 +167,12 @@ const About = () => {
         ) => {
             try {
                 const num: string = amount as string
-                // const tokenAmount = ethers.utils.parseEther(num)
-                const tokenAmount = ethers.BigNumber.from(num)
-                console.log(tokenAmount)
+                const tokenAmount = ethers.utils.parseEther(num)
                 const estimatedGas = await sendSocietyKeyGas(
                     address,
                     tokenAmount,
                 )
-                sendSocietyKey(address, tokenAmount, { gasLimit: estimatedGas })
+                sendSocietyKey(address, tokenAmount)
             } catch (error) {
                 if (error.error)
                     toast.error(
@@ -208,9 +206,9 @@ const About = () => {
         toastMsg(claimSocietyKeyState)
     }, [claimSocietyKeyState])
 
-    useEffect(() => {
-        toastMsg(sendSocietyKeyState)
-    }, [sendSocietyKeyState])
+    // useEffect(() => {
+    //     toastMsg(sendSocietyKeyState)
+    // }, [sendSocietyKeyState])
 
     const adata = useMemo(
         () => [
@@ -356,7 +354,7 @@ const About = () => {
                             ))}
                         </Grid>
                         <span className='claim-gifts-under'>
-                            UNDERDEVELOPMENT
+                            DEVELOPING NOW
                         </span>
                         <Grid
                             container
