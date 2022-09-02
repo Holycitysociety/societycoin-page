@@ -328,9 +328,12 @@ const About = () => {
                                 {(
                                     (societyCoinBalance &&
                                         societyNobleBalance &&
+                                        societyKeyBalance &&
                                         Number(
                                             societyCoinBalance.add(
-                                                societyNobleBalance,
+                                                societyNobleBalance.add(
+                                                    societyKeyBalance,
+                                                )
                                             ),
                                         ) / 1e18) ||
                                     0
