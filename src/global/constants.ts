@@ -3,7 +3,7 @@ import { BigNumber } from '@ethersproject/bignumber'
 export const BIG_ZERO = BigNumber.from('0')
 
 export const SocietyNobleContract = '0x48E709830383905776406F9f34d81Ce76c9A77A6'
-export const SocietyCoinContract = '0xA9aB61a5279365A00627754a4f35F539023AB1f1'
+export const SocietyCoinContract = '0xb8a4910CAccF29c08Eb74Dc80903624a884cfdF9'
 export const SocietyKeyContract = '0x8EA2B5dedc8aE2232C95eB36A46665F7765e3C23'
 
 // export const SocietyNobleContract = '0x84BEDa4a2Ab31E7421B267d2723b4B375A613714'
